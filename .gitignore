@@ -1,0 +1,45 @@
+# PAES: AI Prediction Engine Gitignore
+
+# Local Agent Folders (CRITICAL)
+.agents/
+.gemini/
+.vscode/
+.idea/
+bc.md
+giaodien.md
+
+# Python & System
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+bin/
+lib/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Data & Models (Keep Data/ for training, but ignore local models/logs)
+models/checkpoints_advanced/
+models/checkpoints/
+logs/
+*.log
+latest_prediction.json
+
+# Temporary/Scratch
+tmp/
+temp/
+scratch.py
+test_*.py
+.ipynb_checkpoints/
