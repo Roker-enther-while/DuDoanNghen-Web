@@ -6,10 +6,12 @@ import time
 # Ensure the project root is in the path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
+from src.tools.train_advanced import run_advanced_training_v3
+
 def run_training_command(args):
     """
     Main training command.
-    In a real implementation, this would import training modules and execute.
+    Executes the advanced TCN-Attention-BiLSTM training pipeline.
     """
     print("==========================================")
     print("   AI PREDICTION ENGINE — TRAIN COMMAND")
@@ -19,14 +21,13 @@ def run_training_command(args):
     
     if args.mode == "global":
         print(f"Starting Global Training on {args.data_dir}...")
-        # Mock execution logic
-        time.sleep(2)
+        run_advanced_training_v3()
         print("[OK] Global Model Training completed.")
     elif args.mode == "single":
         print(f"Starting Single Server Training on {args.file}...")
-        # Mock execution logic
-        time.sleep(1)
-        print(f"[OK] Training for {args.file} completed.")
+        # For single file, we could adapt run_advanced_training_v3 to take a file list
+        # but for now, we'll keep the global logic as the primary check.
+        print("Feature pending: Single file training optimization.")
     else:
         print("Error: Unknown mode.")
 

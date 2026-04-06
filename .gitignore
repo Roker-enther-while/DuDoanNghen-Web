@@ -29,6 +29,11 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+.ipynb_checkpoints/
+*.xlsx
+*.csv
+!Data/
+!Data/**
 
 # Data & Models (Keep Data/ for training, but ignore local models/logs)
 models/checkpoints_advanced/
@@ -43,3 +48,6 @@ temp/
 scratch.py
 test_*.py
 .ipynb_checkpoints/
+
+# DLLs (Binary GPU support files)
+*.dll

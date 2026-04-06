@@ -7,7 +7,7 @@ except ImportError:
     savgol_filter = None
 
 def prepare_data_v2(
-    df, col_name="value", window_size=60, train_ratio=0.8, use_log=True, filter_noise=False
+    df, col_name="value", window_size=60, horizon=1, train_ratio=0.8, use_log=True, filter_noise=False
 ):
     """
     Hàm chuẩn hóa và tạo đặc trưng nâng cao (v4) — WEB SYSTEM MULTIVARIATE 10-FEATURES
@@ -75,11 +75,13 @@ def prepare_data_v2(
     )
     num_features = all_features.shape[1]  # = 10
 
-    # 5. Đóng gói Cửa Sổ Trượt (Sliding Window)
+    # 5. Đóng gói Cửa Sổ Trượt (Sliding Window) với Dự báo Đa mốc (Horizon)
     X, y = [], []
-    for i in range(window_size, len(all_features)):
+    for i in range(window_size, len(all_features) - horizon + 1):
         X.append(all_features[i - window_size : i, :])
-        y.append(cpu_t[i])
+        # Lấy một chuỗi các giá trị tải trong tương lai (Horizon)
+        future_y = cpu_t[i : i + horizon]
+        y.append(future_y)
 
     X, y = np.array(X), np.array(y)
     train_size = int(len(X) * train_ratio)

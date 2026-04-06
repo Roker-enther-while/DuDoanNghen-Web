@@ -6,7 +6,7 @@ try:
 except ImportError:
     from attention_layer import Attention
 
-def build_advanced_model(input_shape, num_filters=[32, 64, 128], kernel_size=3, lstm_units=128, dropout_rate=0.3):
+def build_advanced_model(input_shape, horizon=1, num_filters=[32, 64, 128], kernel_size=3, lstm_units=128, dropout_rate=0.3):
     """
     Advanced TCN-Attention-BiLSTM Model Architecture.
     - TCN blocks for local pattern extraction with dilated convolutions.
@@ -38,7 +38,7 @@ def build_advanced_model(input_shape, num_filters=[32, 64, 128], kernel_size=3, 
     # 4. Dense Layers
     x = Dense(units=64, activation='relu', name="dense_1")(x)
     x = Dropout(dropout_rate, name="dense_drop")(x)
-    outputs = Dense(units=1, name="output_dense")(x)
+    outputs = Dense(units=horizon, name="output_dense")(x)
 
     model = Model(inputs=inputs, outputs=outputs, name="TCN_Attention_BiLSTM_Global")
 
