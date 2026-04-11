@@ -13,7 +13,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 from src.utils.data_loaders import UniversalDataLoader
 from src.utils.data_preprocessing import prepare_data_v2
-from src.models.attention_layer import FeatureAttention, TemporalAttention
+from src.utils.model_utils import load_web_tab_model
 
 from src.services.decision_engine import RuleBasedDecisionEngine
 
@@ -30,16 +30,7 @@ class InferenceEngine:
         self.model = self._load_model()
         self.decider = RuleBasedDecisionEngine()
 
-    def _load_model(self):
-        if not os.path.exists(MODEL_PATH):
-            return None
-        return tf.keras.models.load_model(MODEL_PATH, 
-                                         custom_objects={
-                                             'Attention': TemporalAttention,
-                                             'FeatureAttention': FeatureAttention,
-                                             'TemporalAttention': TemporalAttention
-                                         },
-                                         compile=False)
+        return load_web_tab_model(MODEL_PATH, compile=False)
 
     def calculate_lead_time(self, current_load, predicted_load):
         """Lead time to 85% overload"""
