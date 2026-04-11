@@ -24,6 +24,16 @@ if sys.platform == 'win32':
 
 import tensorflow as tf
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
+from tensorflow.keras import mixed_precision
+
+# ==========================================
+# DTYPE OPTIMIZATION (Float8/Float16 Support)
+# ==========================================
+# Note: True Float8 requires TF 2.14+. For TF 2.10.x, we use mixed_float16
+# which provides a massive performance boost on RTX 4060 (Ada Lovelace).
+policy = mixed_precision.Policy('mixed_float16')
+mixed_precision.set_global_policy(policy)
+print(f"[*] Mixed Precision Policy: {policy.name}")
 
 # ==========================================
 # GPU CONFIGURATION (Academic Phase 10)
@@ -67,6 +77,7 @@ EPOCHS = 100
 BATCH_SIZE = 64 # Reduced for stability on laptop/WDDM drivers
 HORIZON = 6 # Predicted steps into the future (e.g., 6 steps = 1 hour if 10-min interval 144=1 day)
 MODEL_DIR = "models/checkpoints_advanced"
+MODEL_NAME = "best_attention_model_v3.h5"
 
 if not os.path.exists(MODEL_DIR): os.makedirs(MODEL_DIR)
 
@@ -191,7 +202,7 @@ def run_advanced_training_v3():
             verbose=1,
             callbacks=[
                 EarlyStopping(monitor='val_loss', patience=15, restore_best_weights=True),
-                ModelCheckpoint(os.path.join(MODEL_DIR, "best_attention_model_v3.h5"), save_best_only=True),
+                ModelCheckpoint(os.path.join(MODEL_DIR, MODEL_NAME), save_best_only=True),
                 ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=7),
                 VRAMLogger()
             ]

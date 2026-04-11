@@ -43,7 +43,7 @@ def build_advanced_model(input_shape, horizon=5, num_filters=64, kernel_size=3, 
     x = Dense(units=horizon * 4, name="output_dense_flat")(x)
     outputs = tf.keras.layers.Reshape((horizon, 4), name="output_mimo")(x)
 
-    model = Model(inputs=inputs, outputs=outputs, name="TCN_Attention_BiLSTM_V2")
+    model = Model(inputs=inputs, outputs=outputs, name="WebTAB_v4.8")
 
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
                   loss='mse',
