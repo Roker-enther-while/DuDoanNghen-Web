@@ -5,15 +5,16 @@
 .gemini/
 .vscode/
 .idea/
-bc.md
-dc.md
-giaodien.md
+
+# Research & Docs
+*.md
+!README.md
 
 # Python & System
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
+*.pyj
 .Python
 env/
 venv/
@@ -50,5 +51,5 @@ scratch.py
 test_*.py
 .ipynb_checkpoints/
 
-# DLLs (Binary GPU support files)
-*.dll
+# DLLs (Forced to upload as per user request)
+# *.dll is no longer ignored
