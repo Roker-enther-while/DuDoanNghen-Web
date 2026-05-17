@@ -173,6 +173,8 @@ def run_model_selection(args: argparse.Namespace, out: Path, seed: int) -> Path:
         "src.tools.run_model_selection",
         "--db-path",
         args.db_path,
+        "--table",
+        args.table,
         "--output-dir",
         str(seed_out),
         "--quick-epochs",
@@ -266,6 +268,7 @@ def main() -> None:
     parser.add_argument("--testbed-csv", default="Data/testbed/testbed_labeled.csv")
     parser.add_argument("--raw-testbed-csv", default="Data/testbed/prometheus_metrics.csv")
     parser.add_argument("--db-path", default="")
+    parser.add_argument("--table", default="train_pool")
     parser.add_argument("--quick-epochs", type=int, default=2)
     parser.add_argument("--batch-size", type=int, default=64)
     parser.add_argument("--seeds", nargs="+", type=int, default=[42, 123, 2026])

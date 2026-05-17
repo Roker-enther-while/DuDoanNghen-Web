@@ -1,0 +1,14 @@
+﻿{
+    "timestamp":  "20260517_211328",
+    "run_minutes_per_profile":  30,
+    "started_utc":  "2026-05-17T14:13:28.3997514Z",
+    "ended_utc":  "2026-05-17T16:43:37.7727759Z",
+    "data_dir":  "Data/testbed/longrun_20260517_211328",
+    "artifact_dir":  "paper_artifacts/longrun_20260517_211328",
+    "raw_csv":  "Data\\testbed\\longrun_20260517_211328\\prometheus_metrics.csv",
+    "labeled_csv":  "Data\\testbed\\longrun_20260517_211328\\testbed_labeled.csv",
+    "harmonized_csv":  "Data\\testbed\\longrun_20260517_211328\\testbed_harmonized.csv",
+    "sqlite_db":  "Data/processed/nckh_biglogs_training_pool.sqlite",
+    "sqlite_table":  "testbed_longrun_20260517_211328",
+    "summary_path":  "docs/testbed_longrun_summary_20260517_211328.md"
+}

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -30,7 +31,16 @@ def parse_time(value: str | None) -> float:
     try:
         return float(value)
     except ValueError:
-        dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        text = value.strip()
+        if text.endswith("Z"):
+            text = text[:-1] + "+00:00"
+        # PowerShell's ISO output can contain 7 fractional digits, while
+        # Python's datetime parser accepts microseconds only.
+        match = re.match(r"^(.*T\d{2}:\d{2}:\d{2})\.(\d+)(.*)$", text)
+        if match:
+            fraction = (match.group(2) + "000000")[:6]
+            text = f"{match.group(1)}.{fraction}{match.group(3)}"
+        dt = datetime.fromisoformat(text)
         if dt.tzinfo is None:
             dt = dt.replace(tzinfo=timezone.utc)
         return dt.timestamp()

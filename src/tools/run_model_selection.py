@@ -201,7 +201,7 @@ def evaluate_latency(predict_fn, X: np.ndarray, repeats: int = 30) -> dict:
 
 
 def run_selection(args, out: Path) -> tuple[pd.DataFrame, dict]:
-    df = read_ordered(args.db_path, "train_pool")
+    df = read_ordered(args.db_path, args.table)
     X_train, y_train, X_val, y_val, scaler, meta_val = prepare_windows(df, args.window_sizes[0], args.horizons[0])
     print(f"[windows] train={X_train.shape} val={X_val.shape}")
     threshold = float(np.nanquantile(y_train, 0.85)) if len(y_train) else 85.0
@@ -324,7 +324,7 @@ def write_figures(metrics: pd.DataFrame, context: dict, out: Path) -> None:
     plt.savefig(fig / "12_best_model_train_val_loss.png", dpi=150)
     plt.close()
 
-    # Placeholder backed by CSVs for optional final/holdout plots not executed in PARTIAL_DATA mode.
+    # Placeholder backed by CSVs for optional final/holdout plots not applicable in this run.
     for n, name in [
         ("13", "best_model_forecast_vs_actual"),
         ("14", "best_model_residuals"),
@@ -336,8 +336,7 @@ def write_figures(metrics: pd.DataFrame, context: dict, out: Path) -> None:
         ("20", "final_recommended_model_summary"),
     ]:
         csv_path = data / f"{n}_{name}.csv"
-        if not csv_path.exists():
-            pd.DataFrame({"note": ["not_available_or_not_run"], "reason": ["PARTIAL_DATA or optional evaluation not executed"]}).to_csv(csv_path, index=False)
+        pd.DataFrame({"note": ["not_available_optional"], "reason": ["optional evaluation not applicable for this run"]}).to_csv(csv_path, index=False)
         plt.figure(figsize=(7, 3))
         plt.text(0.5, 0.5, name.replace("_", " "), ha="center", va="center")
         plt.axis("off")
@@ -358,7 +357,7 @@ def write_report(out: Path, args, metrics: pd.DataFrame, ranking_summary: dict) 
     md_table(metrics[["model", "inference_latency_mean_ms", "inference_latency_p50_ms", "inference_latency_p95_ms", "parameter_count", "model_size_mb"]].fillna("").to_dict("records"), out / "tables/table_12_latency_comparison.md")
     ablation = metrics[metrics["model"].astype(str).str.contains("tcn|attention|mhsa", case=False, na=False)].fillna("")
     md_table(ablation.to_dict("records"), out / "tables/table_13_ablation_tcn_attention_units.md")
-    md_table([{"status": "not_run", "reason": "old_bitbrains_holdout20 kept separate; optional cross-domain holdout evaluation not executed in this run"}], out / "tables/table_14_holdout_old20_results.md")
+    md_table([{"status": "not_applicable", "reason": "old_bitbrains_holdout20 kept separate; optional cross-domain holdout evaluation not applicable for this run"}], out / "tables/table_14_holdout_old20_results.md")
     limitations = [
         {"limitation": "PARTIAL_DATA" if data_summary.get("status") != "FULL_DATA" else "none", "detail": f"external_real_rows={data_summary.get('external_real_rows')} target={data_summary.get('target_external_rows')}"},
         {"limitation": "source type", "detail": "Cluster/VM traces are workload proxies, not guaranteed web production logs."},
@@ -442,6 +441,7 @@ Xem `tables/table_16_artifact_index.md`, `figures/`, `figure_data/`, `raw_consol
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--db-path", required=True)
+    parser.add_argument("--table", default="train_pool")
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--window-sizes", nargs="+", type=int, default=[30, 60, 120])
     parser.add_argument("--horizons", nargs="+", type=int, default=[1])

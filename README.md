@@ -1,108 +1,182 @@
-# WebTAB: An Enhanced Hybrid TCN-Attention-BiLSTM Model for Autonomous Web Infrastructure Control
+# Web Congestion Prediction with Multivariate Time-Series AI
 
-> [!IMPORTANT]
-> **Research Release V4.8**: This repository presents the official implementation of the **WebTAB** (Web-focused Temporal Attention Bidirectional) framework. A state-of-the-art (SOTA) solution for proactive web infrastructure governance combining dilated causal convolutions, long-term recurrent memory, and dynamic attention mechanisms.
+## Overview
 
----
+This repository is a research prototype for a student research project on early congestion prediction in web systems using multivariate time-series monitoring data.
 
-## Abstract
-Modern cloud-native architectures require high-precision load prediction to ensure Service Level Agreement (SLA) compliance and energy efficiency. Traditional threshold-based reactive systems struggle with the non-linear, high-volatility characteristics of web traffic. This research introduces **WebTAB**, a hybrid deep learning architecture integrating **Temporal Convolutional Networks (TCN)**, **Bidirectional Long Short-Term Memory (BiLSTM)**, and **Multi-Head Self-Attention**. 
+The project includes data processing, statistical and neural baselines, a hybrid deep learning model, a Docker-based web testbed, Prometheus/cAdvisor monitoring, Locust load generation, and artifact generation for tables and figures used in reports or paper drafts.
 
-The TCN component provides a massive receptive field through dilated convolutions for local feature extraction. The BiLSTM layer captures bidirectional temporal dependencies, while the Attention mechanism dynamically weights critical bottleneck precursors. Evaluation against SOTA benchmarks (LSTM, TCN-Only) demonstrates an **accuracy of 96.30%**, an **R² Score of 0.971**, and a **25.3% reduction in energy consumption** via autonomous proactive scaling.
+The main hybrid architecture is described neutrally as:
 
-**Keywords:** Web congestion, TCN, BiLSTM, Self-attention, Autonomous systems, Cloud resource optimization, IEEE.
+`TCN + Feature Attention + BiLSTM + Temporal Attention`
 
----
+The repository focuses on reproducible experimentation and honest artifact generation. Results depend on the dataset, testbed duration, random seed, and evaluation metric.
 
-## 1. Introduction
-Web infrastructure management is shifting from manual DevOps towards **Autonomous AI Control**. Web traffic data exhibits "long-range dependencies" and "bursty" behavior, necessitating models that can reason across multiple time scales. While architectures like CNN-BiLSTM have succeeded in biomedical domains [6], pure convolutional models lack memory, and pure recurrent models suffer from vanishing gradients. **WebTAB** synergizes these approaches to provide a robust, low-latency interference engine for the next generation of cloud-native platforms [1, 5].
+## Key Features
 
----
+- Multivariate time-series preprocessing for workload and monitoring metrics.
+- Baselines including Persistence, Moving Average, ARIMA, LSTM, BiLSTM, and TCN variants.
+- Hybrid architecture variants for ablation study.
+- Docker Compose testbed with a measurable web application.
+- Prometheus and cAdvisor metric collection.
+- Locust profiles for `normal`, `gradual`, `spike`, `stress`, and `recovery` traffic.
+- Prometheus-to-CSV collector.
+- Rule-based congestion labeling with threshold and trend explanations.
+- Paper artifact generation for metrics, stability tests, ablation study, threshold search, imputation report, ARIMA behavior analysis, and recommendation-engine audit.
 
-## 2. Mathematical Methodology
+## Repository Structure
 
-### 2.1 Temporal Convolutional Network (TCN)
-To capture local patterns and micro-bursts, WebTAB employs **Dilated Causal Convolutions**. For a 1D sequence input $x$ and a filter $f$, the dilation convolution operation $F$ is defined as:
+```text
+Data/                 Input datasets and generated testbed CSV files
+configs/              Experiment configuration files
+docs/                 Audit notes, run summaries, and pipeline documentation
+paper_artifacts/      Generated tables, figures, metrics, and model-selection outputs
+src/data/             Data pool, schema harmonization, external data helpers
+src/models/           Neural model definitions
+src/services/         Inference, monitoring, anomaly, decision, recommendation logic
+src/tools/            Training, evaluation, collector, labeler, paper artifact scripts
+src/utils/            Data loading, preprocessing, metrics, utilities
+testbed/              Docker web app, Prometheus config, Locust load profiles
+```
 
-$$F(s) = (x *_d f)(s) = \sum_{i=0}^{k-1} f(i) \cdot x(s - d \cdot i)$$
+## Testbed Components
 
-Where:
-- $k$ is the kernel size.
-- $d$ is the **dilation factor** (increasing as $2^n$ in WebTAB layers).
-- $s - d \cdot i$ ensures the operation is **causal** (no information leakage from the future).
+- `testbed/webapp/`: Flask web application exposing Prometheus metrics.
+- `testbed/prometheus/prometheus.yml`: scrape configuration for web app and cAdvisor.
+- `testbed/docker-compose.yml`: starts the web app, Prometheus, and cAdvisor.
+- `testbed/load/locustfile.py`: Locust workloads for five load profiles.
 
-### 2.2 Bidirectional LSTM (BiLSTM)
-The BiLSTM layer processes the TCN-extracted features in both forward ($\vec{h}_t$) and backward ($\gets{h}_t$) directions to capture global context:
+The testbed is production-like laboratory data. It is not a production log from a real deployed web service.
 
-$$H_t = [\vec{h}_t \oplus \gets{h}_t]$$
+## How to Run Testbed
 
-Each LSTM unit utilizes a gating mechanism to regulate information flow:
-- **Forget Gate ($f_t$):** $f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)$
-- **Input Gate ($i_t$):** $i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)$
-- **Output Gate ($o_t$):** $o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)$
+```powershell
+docker compose -f testbed/docker-compose.yml up --build
+```
 
-### 2.3 Self-Attention Mechanism
-WebTAB uses a **Scaled Dot-Product Attention** to identify critical time steps (e.g., sudden request spikes):
+For a background run:
 
-$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+```powershell
+docker compose -f testbed/docker-compose.yml up --build -d
+```
 
-This allows the model to "focus" on a specific 5-minute window that signaled a bottleneck, even if it occurred an hour ago in the input sequence.
+Check targets:
 
----
+```powershell
+Invoke-RestMethod http://localhost:8080/
+Invoke-RestMethod http://localhost:9090/api/v1/targets
+```
 
-## 3. Proposed System Architecture
-The WebTAB pipeline follows a modular sequence for real-time autonomous governance:
+## How to Run Load Profiles
 
-1.  **Log Parsing (Drain3)**: Translates raw Nginx/Apache logs into metrics (Req/sec, Latency).
-2.  **Encoder (TCN-BiLSTM)**: Extracts hierarchical spatial-temporal features.
-3.  **Decoder (Attention-Dense)**: Performs Multi-Input Multi-Output (MIMO) forecasting for $T+10 \dots T+60$.
-4.  **Decision Engine**: A reward-based agent calculating $R = \Delta \text{SLA} - \mu \cdot \text{Energy}$ to issue governance actions.
+Short smoke run:
 
-![Fig 1. Architecture Flow](research_figures/fig2_prediction.png)
-*Figure 1: Verification of WebTAB high-volatility prediction vs. Actual System Load.*
+```powershell
+powershell -ExecutionPolicy Bypass -File testbed/run_load_profiles.ps1 -RunTime 5m
+```
 
----
+Longer research run:
 
-## 4. Empirical Results and Performance
+```powershell
+powershell -ExecutionPolicy Bypass -File testbed/run_load_profiles.ps1 -RunTime 30m
+```
 
-### 4.1 Comparison with Baselines
-We evaluated WebTAB on an 80/20 train-test split against standard benchmarks [4, 8].
+Timestamped end-to-end long-run pipeline:
 
-| Model Architecture | RMSE (%) | MAE (%) | R² Score | WAPE (%) |
-| :--- | :--- | :--- | :--- | :--- |
-| **WebTAB (Proposed)** | **1.21** | **0.85** | **0.971** | **1.70** |
-| Hestia SOTA [6] | 1.93 | 1.85 | 0.940 | 2.10 |
-| TCN-BiLSTM (Standard) | 1.98 | 1.54 | 0.915 | 2.98 |
-| ST-LSTM (Baseline) | 2.15 | 1.82 | 0.892 | 3.45 |
+```powershell
+powershell -ExecutionPolicy Bypass -File testbed/run_longrun_pipeline.ps1 -RunMinutesPerProfile 30
+```
 
-### 4.2 Resource Optimization
-![Fig 2. ROI Analysis](research_figures/fig3_roi.png)
-*Figure 2: System ROI proving 25.3% reduction in idle resource costs and 98.5% SLA up-time.*
+The five profiles are `normal`, `gradual`, `spike`, `stress`, and `recovery`.
 
----
+## How to Collect Prometheus Metrics
 
-## 5. Conclusion
-WebTAB demonstrates that the fusion of dilated convolutions and bidirectional memory, enhanced by attention, provides a superior foundation for autonomous web infrastructure. Future work will focus on **Transformer-based** scaling for multi-cloud distributed environments [4, 6].
+```powershell
+python -m src.tools.collect_prometheus_metrics `
+  --minutes 30 `
+  --output Data/testbed/prometheus_metrics.csv `
+  --load-profile mixed
+```
 
----
+The collector writes both CSV data and a metadata JSON file containing the PromQL queries and time range.
 
-## 📚 References
-### [Group 1: Cloud-Native & Autonomous Load Balancing]
-1. **T. A. Prasad**, "AI-Driven Predictive Scaling for Performance Optimization in Cloud-Native Architectures," *Journal of Electrical Systems*, vol. 19, no. 4, pp. 607-617, 2023.
-2. **W. Hussain, et al.**, "Assessing cloud QoS predictions using OWA in neural network methods," *Neural Computing and Applications*, 2022.
-3. **M. Manoj, et al.**, "AI-Based Load Forecasting And Resource Optimization For Energy-Efficient Cloud Computing," *Int. Journal of Environmental Sciences*, 2025.
-4. **M. N. Jawaid and T. Siddiqui**, "A Hybrid BiLSTM–Attention Model for Dynamic Load Balancing in Large-Scale Cloud Systems," 2024.
+## How to Label Congestion
 
-### [Group 2: TCN-BiLSTM-Attention SOTA Architecture]
-5. **"Prediction Study Based on TCN-BiLSTM-SA Time Series Model"**, *Atlantis Press*, 2024. [Link](https://www.atlantis-press.com/article/125992829.pdf)
-6. **Mechichi N, Benzarti F**, "An Enhanced Hybrid Model Combining CNN, BiLSTM, and Attention Mechanism for ECG Segment Classification," *PMC12174755*, 2025.
-7. **"ETLNet: An Efficient TCN-BiLSTM Network for Road Anomaly Detection"**, 2025. [GitHub](https://github.com/ETLNet/TCN-BiLSTM)
-8. **J. Bi, et al.**, "A Hybrid Prediction Method for Realistic Network Traffic With Temporal Convolutional Network and LSTM," *IEEE Trans. on Automation Science*, 2021.
+```powershell
+python -m src.tools.label_testbed_congestion `
+  --input Data/testbed/prometheus_metrics.csv `
+  --output Data/testbed/testbed_labeled.csv
+```
 
-### [Group 3: Monitoring & Scalability]
-9. **X. Yang, et al.**, "An Artificial Intelligence Framework for Joint Structural-Temporal Load Forecasting in Cloud Native Platforms," *arXiv:2601.20389*, 2026.
-10. **"TCN-attention-HAR: human activity recognition"**, *Nature Scientific Reports*, 2024. [Link](https://www.nature.com/articles/s41598-024-57912-3)
-11. **Du et al.**, "DeepLog: Anomaly Detection from System Logs," *ACM CCS*, 2017.
+The labeler creates:
 
----
-© 2026 WebTAB Framework - Academic Release V4.8.
+- `congestion_label`
+- `label_reason`
+- `label_rule_version`
+- a JSON label report with thresholds and missing-value counts
+
+## How to Run Paper Experiments
+
+```powershell
+python -m src.tools.prepare_testbed_dataset `
+  --input Data/testbed/testbed_labeled.csv `
+  --output Data/testbed/testbed_harmonized.csv `
+  --db-path Data/processed/nckh_biglogs_training_pool.sqlite `
+  --table testbed_pool
+
+python -m src.tools.run_paper_experiments `
+  --db-path Data/processed/nckh_biglogs_training_pool.sqlite `
+  --testbed-csv Data/testbed/testbed_labeled.csv `
+  --raw-testbed-csv Data/testbed/prometheus_metrics.csv `
+  --output-dir paper_artifacts `
+  --quick-epochs 2 `
+  --seeds 42 123 2026
+```
+
+The generated artifacts are written under `paper_artifacts/`.
+
+## Current Evidence and Limitations
+
+The repository currently has both a short smoke run and one timestamped long-run with real generated artifacts:
+
+- Docker + Prometheus + cAdvisor + Locust testbed is implemented.
+- Five load profiles were run: `normal`, `gradual`, `spike`, `stress`, `recovery`.
+- Initial short testbed data:
+  - `Data/testbed/prometheus_metrics.csv`: 109 rows.
+  - `Data/testbed/testbed_labeled.csv`: 109 rows.
+  - labels: `0 = 60`, `1 = 49`.
+- Long-run `20260517_211328` used 30 minutes per profile:
+  - `Data/testbed/longrun_20260517_211328/prometheus_metrics.csv`: 1802 rows.
+  - `Data/testbed/longrun_20260517_211328/testbed_labeled.csv`: 1802 rows.
+  - `Data/testbed/longrun_20260517_211328/testbed_harmonized.csv`: 1802 rows.
+  - SQLite table `testbed_longrun_20260517_211328`: 1802 rows.
+  - labels: `0 = 977`, `1 = 825`.
+- Stability, ablation, threshold search, imputation, ARIMA behavior, and recommendation audit artifacts exist under `paper_artifacts/` and `paper_artifacts/longrun_20260517_211328/`.
+
+Important limitations:
+
+- This is a research prototype, not an operational monitoring product.
+- The Docker testbed is a laboratory/production-like environment, not real production traffic.
+- On the short initial artifacts, simple baselines such as Persistence and Moving Average are competitive.
+- On long-run `20260517_211328`, Moving Average is the strongest RMSE model, while classification F1 is 0.0 for all models on the validation split.
+- The current artifacts do not prove that `TCN + Feature Attention + BiLSTM + Temporal Attention` wins under every metric or seed.
+- Multi-day runs and independent workloads are still needed for stronger stability claims.
+
+## Reproducibility Notes
+
+- Do not report metrics unless they come from generated CSV, JSON, Markdown, or figure artifacts.
+- Use timestamped output directories for long-run experiments to avoid overwriting previous evidence.
+- Keep model claims tied to a specific dataset, seed set, and metric.
+- cAdvisor labels can differ across Docker Desktop, WSL, and Linux. The collector includes fallback PromQL for Docker Desktop/WSL.
+
+## Citation / Paper Artifacts
+
+Use `paper_artifacts/paper_summary.md` as the living summary for a paper draft. The tables and figures under `paper_artifacts/` are generated from code and should be preferred over manually typed metrics.
+
+Recommended neutral title:
+
+`Early Prediction of Web System Congestion Using Multivariate Time-Series Monitoring Data`
+
+## License / Academic Use
+
+This repository is intended for academic research and student experimentation. Validate all results in the target environment before using the pipeline for operational decisions.

@@ -1,0 +1,6 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+GET,/maybe-error,HTTPError('503 Server Error: SERVICE UNAVAILABLE for url: /maybe-error'),394,2026-05-17T14:43:52Z,2026-05-17T15:13:32Z
+GET,/io,"OSError(10048, '[WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.')",6989,2026-05-17T14:45:28Z,2026-05-17T15:12:51Z
+GET,/cpu,"OSError(10048, '[WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.')",9295,2026-05-17T14:45:28Z,2026-05-17T15:13:01Z
+GET,/,"OSError(10048, '[WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.')",11713,2026-05-17T14:45:28Z,2026-05-17T15:12:58Z
+GET,/maybe-error,"OSError(10048, '[WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.')",2211,2026-05-17T14:45:28Z,2026-05-17T15:12:58Z
