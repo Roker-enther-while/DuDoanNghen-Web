@@ -1,0 +1,7 @@
+{
+  "best_by_rmse": "moving_average",
+  "best_by_r2": "moving_average",
+  "best_by_f1": "lstm32",
+  "best_by_latency": "persistence",
+  "recommended_model_for_report": "moving_average"
+}

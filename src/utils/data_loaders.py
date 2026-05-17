@@ -39,19 +39,36 @@ class UniversalDataLoader:
         # Chuyển đổi toàn bộ thuật ngữ Network sang Web System
         rename_map = {
             'Latency': 'Response_Time',
+            'latency': 'Response_Time',
+            'response_time': 'Response_time',
             'Provider_Latency': 'Response_Time',
             'provider_latency': 'Response_Time',
             'Packet_Loss': 'Error_Rate_5xx',
             'packet_loss': 'Error_Rate_5xx',
+            'error_rate': 'Error_Rate_5xx',
+            'cpu_usage': 'CPU_usage',
+            'memory_usage': 'Memory_usage',
+            'request_rate': 'Request_rate',
+            'throughput': 'Throughput',
             'Value': 'value'
         }
         df = df.rename(columns=rename_map)
+        if 'Response_Time' in df.columns and 'Response_time' not in df.columns:
+            df['Response_time'] = df['Response_Time']
+        if 'Response_time' in df.columns and 'Response_Time' not in df.columns:
+            df['Response_Time'] = df['Response_time']
         
         # 3. Đảm bảo các cột đặc trưng bắt buộc hiện diện
         if 'Response_Time' not in df.columns:
             df['Response_Time'] = 0.0
+        if 'Response_time' not in df.columns:
+            df['Response_time'] = df['Response_Time']
         if 'Error_Rate_5xx' not in df.columns:
             df['Error_Rate_5xx'] = 0.0
+        if 'CPU_usage' not in df.columns:
+            df['CPU_usage'] = df.get('value', 0.0)
+        if 'Request_rate' not in df.columns:
+            df['Request_rate'] = df.get('value', 0.0)
         
         return df
 

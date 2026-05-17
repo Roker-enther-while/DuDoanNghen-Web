@@ -1,0 +1,113 @@
+# Code Audit
+
+Ngay thuc hien: 2026-05-17.
+
+## Cau truc repo hien tai
+
+- `src/commands/`: entrypoint lenh train don gian.
+- `src/models/`: kien truc hoc sau hien co.
+- `src/models/legacy/`: baseline va model cu.
+- `src/utils/`: data loader, tien xu ly, metric, model utils.
+- `src/data/`: SQL data pool, harmonizer schema, downloader va synthetic noise.
+- `src/services/`: infer, monitor, anomaly, decision va recommendation service.
+- `src/tools/`: cac script tao pool du lieu, train nang cao, evidence report, model selection, dashboard.
+- `Data/`: dataset CSV mau, external downloads/sources, SQLite processed pool.
+- `experiments/`: nhieu lan chay da co, gom metrics, bang, hinh, checkpoint.
+- `reports/`, `research_figures/`: hinh va script tao hinh cho bao cao hien co.
+- Chua thay `configs/` o root.
+
+## File train/evaluate/model da co
+
+- Train:
+  - `src/commands/run_train.py`
+  - `src/tools/train_advanced.py`
+  - `src/tools/train_main_120_congestion.py`
+  - `src/tools/run_model_selection.py`
+  - `src/tools/run_mhsa_evidence.py`
+  - `src/tools/run_nckh_evidence.py`
+- Evaluate/report:
+  - `src/tools/run_model_selection.py`
+  - `src/tools/run_nckh_evidence.py`
+  - `src/tools/run_mhsa_evidence.py`
+  - `src/tools/figure_generator.py`
+  - `reports/generate_figures.py`
+  - `src/utils/metrics.py`
+- Model:
+  - `src/models/tcn_attention_bilstm.py`
+  - `src/models/attention_layer.py`
+  - `src/models/legacy/baselines.py`
+  - `src/models/legacy/tcn_lstm_keras.py`
+
+## Model da ton tai
+
+- `build_advanced_model`: TCN + Feature Attention + BiLSTM + Temporal Attention, MIMO output.
+- Legacy MHSA builder function: TCN + optional Feature Attention + BiLSTM + Multi-Head Self-Attention.
+- Model selection variants trong `src/tools/run_model_selection.py`:
+  - `persistence`
+  - `moving_average`
+  - `arima`
+  - `lstm32`
+  - `bilstm32`
+  - `tcn16`
+  - `tcn32`
+  - `tcn_bilstm32_no_attn`
+  - `tcn_bilstm32_temporal_attention`
+  - legacy temporal-attention alias
+  - legacy full-architecture alias
+  - legacy MHSA-light alias
+
+Ghi chu: output moi khong tiep tuc dung ten thuong hieu cu cho kien truc chinh; can ghi truc tiep la `TCN + Feature Attention + BiLSTM + Temporal Attention`.
+
+## Dataset dang duoc dung
+
+- CSV trong `Data/`:
+  - `Alibaba_Cluster_Trace_Sample.csv`
+  - `AWS_CloudWatch_Trace_Sample.csv`
+  - `Azure_Cloud_VM_Trace_Sample.csv`
+  - `Bitbrains_FastStorage_Trace_Sample.csv`
+  - `Google_Cluster_Trace_Sample.csv`
+  - `synthetic_workload.csv`
+- External/local pool:
+  - `Data/external_downloads/`
+  - `Data/external_sources/`
+  - `Data/processed/nckh_biglogs_training_pool.sqlite`
+- Bang SQL chinh trong `src/data/sql_data_pool.py`:
+  - `train_pool`
+  - `validation_pool`
+  - `test_pool_optional`
+  - `raw_external_logs`
+  - `harmonized_external_logs`
+  - `synthetic_noisy_logs`
+  - `old_bitbrains_train80`
+  - `old_bitbrains_holdout20`
+
+## Diem thieu so voi yeu cau hoi dong
+
+- Chua co testbed web that bang Docker Compose gom web app, Prometheus va cAdvisor.
+- Chua co script Locust/JMeter trong repo de sinh tai `normal`, `gradual`, `spike`, `stress`, `recovery`.
+- Chua co collector chuyen Prometheus range query thanh CSV theo schema training hien co.
+- Chua co pipeline rieng gan nhan nghe cho metrics testbed bang rule co giai thich.
+- Data loader hien co chua co nhanh nhan dien dataset testbed Prometheus CSV.
+- Stability test nhieu seed chua duoc tach thanh script/artifact rieng.
+- Ablation cho day du tung thanh phan `TCN + Feature Attention + BiLSTM + Temporal Attention` chua ro rang; hien moi co bien the nhe va ten cu.
+- Imputation report, threshold search va ARIMA behavior analysis chua co pipeline rieng tao bang/hinh vao `paper_artifacts`.
+- Recommendation Engine hien co con it rule va chua xuat duoc logic/audit table ro rang.
+- `README.md` va nhieu artifact cu con dung ten thuong hieu cu va co so lieu tuyen bo san; output moi can chi dung ket qua sinh tu code/file that.
+
+## Ke hoach chinh sua toi thieu
+
+1. Them `testbed/` voi Docker Compose cho web app demo, Prometheus, cAdvisor va cau hinh scrape.
+2. Them Locust load generator cho 5 pattern tai va script chay lap thuc nghiem.
+3. Them collector Prometheus range query -> CSV theo cot gan voi schema `train_pool`.
+4. Them labeler testbed tao `congestion_label`, `label_reason`, quality/imputation fields.
+5. Mo rong `UniversalDataLoader`/schema harmonizer de doc testbed CSV ma khong pha pipeline cu.
+6. Them script nap dataset testbed vao SQLite `train_pool`/`validation_pool` hoac xuat CSV prepared.
+7. Them runner thuc nghiem paper sinh artifact vao `paper_artifacts/`:
+   - stability multi-seed
+   - ablation kien truc
+   - threshold search
+   - imputation report
+   - ARIMA behavior analysis
+   - recommendation audit
+8. Doi ten cac output moi sang `TCN + Feature Attention + BiLSTM + Temporal Attention`; giu alias cu trong code neu can de tuong thich checkpoint/script cu.
+9. Chi ghi so lieu tu file CSV/JSON sinh ra trong run; neu chua chay thi artifact phai ghi `not_run` va ly do.

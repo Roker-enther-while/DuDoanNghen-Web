@@ -1,0 +1,44 @@
+{
+  "output": "Data\\testbed\\testbed_harmonized.csv",
+  "rows": 109,
+  "columns": [
+    "timestamp",
+    "source_name",
+    "machine_id",
+    "service_id",
+    "cpu_usage",
+    "memory_usage",
+    "disk_io",
+    "network_in",
+    "network_out",
+    "request_rate",
+    "throughput",
+    "response_time",
+    "error_rate",
+    "congestion_label",
+    "is_synthetic",
+    "is_noisy",
+    "time_index",
+    "label_reason",
+    "label_rule_version",
+    "load_profile"
+  ],
+  "mapping": {
+    "docker_prometheus_testbed": {
+      "timestamp": "timestamp",
+      "cpu_usage": "cpu_usage",
+      "memory_usage": "memory_usage",
+      "disk_io": "disk_io",
+      "network_in": "network_in",
+      "network_out": "network_out",
+      "request_rate": "request_rate",
+      "throughput": "throughput",
+      "response_time": "response_time",
+      "error_rate": "error_rate",
+      "machine_id": "machine_id",
+      "service_id": "service_id"
+    }
+  },
+  "db_path": "Data/processed/nckh_biglogs_training_pool.sqlite",
+  "table": "testbed_pool"
+}
