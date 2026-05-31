@@ -1,7 +1,0 @@
-{
-  "type": "naive_last_value",
-  "feature_name": "congestion_score_proxy",
-  "feature_index": 18,
-  "fallback_value": 0.14063967764377594,
-  "note": "Simple comparison baseline, not an optimized forecasting model."
-}
