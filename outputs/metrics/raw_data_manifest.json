@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "source_name": "nasa_smoke_sample",
+      "url": null,
+      "local_path": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\TCN-Attention-BiLSTM\\data\\raw\\nasa_http\\nasa_smoke_sample.log.gz",
+      "file_size": 7660,
+      "sha256": null,
+      "downloaded_at": "2026-05-31T09:19:36.143368+00:00",
+      "reused_existing": false,
+      "offline_sample": true
+    }
+  ]
+}

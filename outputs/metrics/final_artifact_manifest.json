@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-05-26T06:37:28.903657+00:00",
+  "state": "STATE_B_FALLBACK_COMPLETE",
+  "groups": {
+    "models": [
+      {
+        "path": "outputs/models/full_120_tcn_attention_bilstm/best_model.pt",
+        "exists": true,
+        "size_bytes": 366562,
+        "purpose": "best NASA-only full 120 model",
+        "result_type": "real_public_proxy"
+      },
+      {
+        "path": "outputs/models/full_120_tcn_attention_bilstm/last_model.pt",
+        "exists": true,
+        "size_bytes": 366818,
+        "purpose": "last NASA-only full 120 model",
+        "result_type": "real_public_proxy"
+      }
+    ],
+    "real_public_metrics": [
+      {
+        "path": "outputs/metrics/full_120_tcn_attention_bilstm/final_metrics.json",
+        "exists": true,
+        "size_bytes": 4476,
+        "purpose": "NASA-only final metrics",
+        "result_type": "real_public_proxy"
+      },
+      {
+        "path": "outputs/predictions/full_120_tcn_attention_bilstm/test_predictions.csv",
+        "exists": true,
+        "size_bytes": 1246440,
+        "purpose": "NASA-only test predictions",
+        "result_type": "real_public_proxy"
+      }
+    ],
+    "calibration": [
+      {
+        "path": "outputs/metrics/full_120_tcn_attention_bilstm/threshold_calibration.json",
+        "exists": true,
+        "size_bytes": 79423,
+        "purpose": "NASA-only threshold calibration",
+        "result_type": "calibration"
+      },
+      {
+        "path": "outputs/reports/full_120_tcn_attention_bilstm/threshold_calibration.md",
+        "exists": true,
+        "size_bytes": 1053,
+        "purpose": "NASA-only threshold calibration report",
+        "result_type": "calibration"
+      }
+    ],
+    "synthetic": [
+      {
+        "path": "outputs/synthetic_stress_eval/full_120_tcn_attention_bilstm/metrics.json",
+        "exists": true,
+        "size_bytes": 31934,
+        "purpose": "synthetic stress metrics",
+        "result_type": "synthetic_stress_test"
+      },
+      {
+        "path": "outputs/synthetic_stress_eval/full_120_tcn_attention_bilstm/report.md",
+        "exists": true,
+        "size_bytes": 689,
+        "purpose": "synthetic stress report",
+        "result_type": "synthetic_stress_test"
+      },
+      {
+        "path": "outputs/synthetic_stress_eval/full_120_tcn_attention_bilstm/scenario_metrics.csv",
+        "exists": true,
+        "size_bytes": 849,
+        "purpose": "synthetic scenario metrics",
+        "result_type": "synthetic_stress_test"
+      },
+      {
+        "path": "outputs/synthetic_stress_eval/full_120_tcn_attention_bilstm/phase_metrics.csv",
+        "exists": true,
+        "size_bytes": 526,
+        "purpose": "synthetic phase metrics",
+        "result_type": "synthetic_stress_test"
+      }
+    ],
+    "governance": [
+      {
+        "path": "outputs/metrics/source_license_manifest.json",
+        "exists": true,
+        "size_bytes": 7270,
+        "purpose": "source license manifest",
+        "result_type": "governance"
+      },
+      {
+        "path": "outputs/metrics/zanbil_readiness.json",
+        "exists": true,
+        "size_bytes": 1083,
+        "purpose": "Zanbil readiness status",
+        "result_type": "governance"
+      },
+      {
+        "path": "outputs/metrics/multi_source_manifest.json",
+        "exists": true,
+        "size_bytes": 2600,
+        "purpose": "multi-source manifest",
+        "result_type": "governance"
+      }
+    ],
+    "dashboard": [
+      {
+        "path": "outputs/web/final_state_b_dashboard_payload.json",
+        "exists": true,
+        "size_bytes": 4889,
+        "purpose": "final STATE B dashboard payload",
+        "result_type": "dashboard_payload"
+      },
+      {
+        "path": "outputs/web/full_120_tcn_attention_bilstm/model_dashboard_payload.json",
+        "exists": true,
+        "size_bytes": 9327,
+        "purpose": "updated full_120 dashboard payload",
+        "result_type": "dashboard_payload"
+      }
+    ]
+  },
+  "summary": {
+    "artifact_count": 15,
+    "exists_count": 15,
+    "missing_count": 0
+  }
+}

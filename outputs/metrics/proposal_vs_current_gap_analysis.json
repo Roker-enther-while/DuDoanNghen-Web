@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-05-31",
+  "gaps": [
+    {
+      "area": "telemetry",
+      "proposal_wants": ["cpu_usage", "memory_usage", "response_time"],
+      "current_has": ["request_count", "throughput_bytes_per_min"],
+      "missing": ["cpu_usage", "memory_usage", "response_time"],
+      "severity": "high",
+      "action": "target_is_proxy_not_measured_congestion"
+    },
+    {
+      "area": "model_comparison",
+      "proposal_wants": ["moving_average", "arima", "holt_winters", "lstm", "gru", "tcn", "transformer", "tcn_attention_bilstm"],
+      "current_has": ["moving_average", "lstm", "gru", "tcn", "transformer", "tcn_attention_bilstm"],
+      "missing": ["arima", "holt_winters"],
+      "severity": "medium",
+      "action": "planned_not_implemented"
+    },
+    {
+      "area": "turboquant",
+      "proposal_wants": "turboquant_optimization",
+      "current_has": "mixed_precision_fp16_normalization_0_1",
+      "severity": "low",
+      "action": "planned_optional"
+    },
+    {
+      "area": "recommendation_engine",
+      "proposal_wants": "production_recommendation_engine",
+      "current_has": "rule_based_threshold_recommendation",
+      "severity": "low",
+      "action": "prototype_rule_based"
+    },
+    {
+      "area": "multi_source",
+      "proposal_wants": "nasa_zanbil_google_multi_source",
+      "current_has": "nasa_only",
+      "missing_source": "zanbil_raw",
+      "missing_path": "data/raw/zanbil/access.log",
+      "severity": "high",
+      "action": "need_zanbil_raw"
+    },
+    {
+      "area": "dashboard",
+      "proposal_wants": "demo_dashboard_with_real_numbers",
+      "current_has": "json_payload_with_real_numbers",
+      "severity": "none",
+      "action": "already_done"
+    }
+  ],
+  "target_notice": "NASA target is proxy congestion score, not measured congestion.",
+  "synthetic_notice": "Synthetic stress is controlled benchmark, not real-world result.",
+  "cross_source_notice": "No cross-source claim because Zanbil raw is missing."
+}

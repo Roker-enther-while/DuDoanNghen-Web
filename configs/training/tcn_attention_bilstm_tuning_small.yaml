@@ -1,0 +1,52 @@
+seed: 42
+epochs: 5
+batch_size: 128
+max_train_samples: 30000
+max_val_samples: 5000
+max_test_samples:
+alert_threshold:
+  mode: quantile
+  reference_split: val
+  value: 0.90
+output_dir: outputs
+backend: torch
+require_gpu: true
+early_stopping: true
+patience: 3
+reduce_lr_on_plateau: true
+model_checkpoint: true
+csv_logger: true
+mixed_precision: true
+gpu_memory_limit_mb: 5120
+gpu_data_buffer_mb: 1024
+gpu_model_budget_mb: 4096
+evaluation_sample_strategy: full
+verbose: 0
+options:
+  - name: option_a
+    filters: 32
+    lstm_units: 32
+    attention_heads: 2
+    attention_key_dim: 16
+    dropout: 0.1
+    learning_rate: 0.001
+    dense_units: 32
+    dilations: [1, 2, 4]
+  - name: option_b
+    filters: 64
+    lstm_units: 64
+    attention_heads: 4
+    attention_key_dim: 16
+    dropout: 0.2
+    learning_rate: 0.0005
+    dense_units: 64
+    dilations: [1, 2, 4]
+  - name: option_c
+    filters: 64
+    lstm_units: 32
+    attention_heads: 2
+    attention_key_dim: 16
+    dropout: 0.15
+    learning_rate: 0.0007
+    dense_units: 64
+    dilations: [1, 2, 4]

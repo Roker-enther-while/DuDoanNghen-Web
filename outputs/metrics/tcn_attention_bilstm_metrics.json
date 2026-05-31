@@ -1,0 +1,178 @@
+{
+  "model": "tcn_attention_bilstm",
+  "category": "proposed",
+  "status": "success",
+  "error": null,
+  "train_time_seconds": 50.44274729999597,
+  "inference_time_seconds": 0.2225999999936903,
+  "metrics": {
+    "mae": 0.04391622706711158,
+    "rmse": 0.05889413280300584,
+    "r2": 0.2709564151428956
+  },
+  "alert_metrics": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "accuracy": 0.8675918979744937,
+    "alert_threshold": 0.183837890625,
+    "alert_positive_count_true": 1765,
+    "alert_positive_count_pred": 0,
+    "tp": 0,
+    "fp": 0,
+    "tn": 11565,
+    "fn": 1765,
+    "warning": "no_positive_predictions_for_threshold"
+  },
+  "alert_threshold": 0.183837890625,
+  "alert_threshold_mode": "quantile",
+  "alert_threshold_value": 0.9,
+  "alert_threshold_reference_split": "val",
+  "evaluation_sample_strategy": "full",
+  "evaluation_sample_count": 13330,
+  "prediction_path": "outputs\\predictions\\tcn_attention_bilstm_test_predictions.csv",
+  "model_path": "outputs\\models\\tcn_attention_bilstm\\model.pt",
+  "history_path": "outputs\\metrics\\tcn_attention_bilstm_history.json",
+  "data_summary": {
+    "path": "data\\processed\\nasa_http_3m\\windows\\windows_fp16.npz",
+    "train": {
+      "X_shape": [
+        62425,
+        60,
+        19
+      ],
+      "y_shape": [
+        62425
+      ],
+      "X_dtype": "float16",
+      "y_dtype": "float16",
+      "min": 0.0,
+      "max": 1.0,
+      "nan_count": 0,
+      "inf_count": 0
+    },
+    "val": {
+      "X_shape": [
+        13330,
+        60,
+        19
+      ],
+      "y_shape": [
+        13330
+      ],
+      "X_dtype": "float16",
+      "y_dtype": "float16",
+      "min": 0.0,
+      "max": 1.0,
+      "nan_count": 0,
+      "inf_count": 0
+    },
+    "test": {
+      "X_shape": [
+        13330,
+        60,
+        19
+      ],
+      "y_shape": [
+        13330
+      ],
+      "X_dtype": "float16",
+      "y_dtype": "float16",
+      "min": 0.0,
+      "max": 1.0,
+      "nan_count": 0,
+      "inf_count": 0
+    },
+    "feature_columns": [
+      "request_count",
+      "bytes_sum",
+      "bytes_mean",
+      "bytes_max",
+      "bytes_p95",
+      "unique_hosts",
+      "status_2xx",
+      "status_3xx",
+      "status_4xx",
+      "status_5xx",
+      "error_count",
+      "error_rate",
+      "method_get",
+      "method_post",
+      "method_head",
+      "method_other",
+      "throughput_bytes_per_min",
+      "request_spike_score",
+      "congestion_score_proxy"
+    ],
+    "target_column": "target_next_congestion_score",
+    "warnings": []
+  },
+  "config": {
+    "seed": 42,
+    "epochs": 20,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "max_train_samples": null,
+    "max_val_samples": null,
+    "max_test_samples": null,
+    "alert_threshold": {
+      "mode": "quantile",
+      "reference_split": "val",
+      "value": 0.9
+    },
+    "output_dir": "outputs",
+    "output_tag": "balanced",
+    "backend": "torch",
+    "require_gpu": true,
+    "early_stopping": true,
+    "patience": 5,
+    "reduce_lr_on_plateau": true,
+    "model_checkpoint": true,
+    "csv_logger": true,
+    "mixed_precision": true,
+    "gpu_memory_limit_mb": 5120,
+    "gpu_data_buffer_mb": 1024,
+    "gpu_model_budget_mb": 4096,
+    "verbose": 1,
+    "evaluation_sample_strategy": "full",
+    "average_steps": 5,
+    "d_model": 64,
+    "num_heads": 4,
+    "ff_dim": 128,
+    "num_blocks": 2,
+    "filters": 64,
+    "kernel_size": 3,
+    "dilations": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "attention_heads": 4,
+    "attention_key_dim": 16,
+    "lstm_units": 64,
+    "dense_units": 64,
+    "dropout": 0.1,
+    "models": [
+      "naive_last_value",
+      "moving_average",
+      "lstm",
+      "gru",
+      "tcn",
+      "transformer",
+      "tcn_lstm",
+      "tcn_attention_bilstm"
+    ]
+  },
+  "gpu_memory_plan": {
+    "backend": "torch",
+    "device": "cuda:0",
+    "cuda_available": true,
+    "device_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "vram_budget_mb": 5120,
+    "data_buffer_budget_mb": 1024,
+    "model_budget_mb": 4096,
+    "mixed_precision": true
+  },
+  "target_notice": "NASA target is a proxy congestion score, not a measured congestion label."
+}

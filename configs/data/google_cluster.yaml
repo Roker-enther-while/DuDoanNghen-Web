@@ -1,0 +1,7 @@
+enabled: false
+mode: external_sample_or_bigquery_export
+window_minutes: 5
+output_dtype: float16
+notes:
+  - Do not download Google Cluster 2019 by default.
+  - Use BigQuery or a small local export, then pass it to scripts/prepare_google_cluster.py.

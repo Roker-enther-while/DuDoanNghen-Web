@@ -1,0 +1,161 @@
+{
+  "generated_at": "2026-05-26T05:51:28.307499+00:00",
+  "data_path": "C:\\Users\\dhp01\\OneDrive\\Máy tính\\TCN-Attention-BiLSTM\\data\\processed\\multi_source_web_logs\\windows\\windows_fp16.npz",
+  "threshold": 0.183838,
+  "shapes": {
+    "train": {
+      "X": [
+        62425,
+        60,
+        19
+      ],
+      "y": [
+        62425
+      ],
+      "dtype": "float16"
+    },
+    "val": {
+      "X": [
+        13330,
+        60,
+        19
+      ],
+      "y": [
+        13330
+      ],
+      "dtype": "float16"
+    },
+    "test": {
+      "X": [
+        13330,
+        60,
+        19
+      ],
+      "y": [
+        13330
+      ],
+      "dtype": "float16"
+    }
+  },
+  "sources": [
+    "nasa_http_1995"
+  ],
+  "source_count": 1,
+  "scenario_count": 0,
+  "synthetic_count": 0,
+  "label_summary": null,
+  "splits": {
+    "train": {
+      "count": 62425,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.14063967764377594,
+      "std": 0.13847459852695465,
+      "p90": 0.330078125,
+      "p95": 0.431884765625,
+      "p99": 0.62353515625,
+      "threshold_counts": {
+        "0.50": 1842,
+        "0.60": 779,
+        "0.70": 274,
+        "0.80": 89,
+        "p90": 6244,
+        "p95": 3128,
+        "p99": 626
+      },
+      "positive_count": 16691,
+      "positive_rate": 0.2673768522226672,
+      "volatility_mean_abs_delta": 0.050549570471048355,
+      "near_constant_rate_delta_lt_0_005": 0.1966711521209791,
+      "near_constant_rate_delta_lt_0_01": 0.2639689862873254,
+      "spike_count_delta_gt_0_05": 23166,
+      "autocorrelation": {
+        "lag_1": 0.8496282467880558,
+        "lag_5": 0.7886573493726697,
+        "lag_15": 0.7640496575056203,
+        "lag_30": 0.7539637860419878
+      }
+    },
+    "val": {
+      "count": 13330,
+      "min": 0.0,
+      "max": 0.402099609375,
+      "mean": 0.09413336962461472,
+      "std": 0.0639401525259018,
+      "p90": 0.183837890625,
+      "p95": 0.2204040527343749,
+      "p99": 0.2879443359374996,
+      "threshold_counts": {
+        "0.50": 0,
+        "0.60": 0,
+        "0.70": 0,
+        "0.80": 0,
+        "p90": 1335,
+        "p95": 667,
+        "p99": 134
+      },
+      "positive_count": 1329,
+      "positive_rate": 0.09969992498124532,
+      "volatility_mean_abs_delta": 0.04569477587938309,
+      "near_constant_rate_delta_lt_0_005": 0.10488408732838173,
+      "near_constant_rate_delta_lt_0_01": 0.19903968789856705,
+      "spike_count_delta_gt_0_05": 4603,
+      "autocorrelation": {
+        "lag_1": 0.5198558979802975,
+        "lag_5": 0.3697969760066784,
+        "lag_15": 0.31992291322787264,
+        "lag_30": 0.2831226351774184
+      }
+    },
+    "test": {
+      "count": 13330,
+      "min": 0.0,
+      "max": 0.46923828125,
+      "mean": 0.10319114476442337,
+      "std": 0.06897556781768799,
+      "p90": 0.2005615234375,
+      "p95": 0.2352966308593749,
+      "p99": 0.3114526367187498,
+      "threshold_counts": {
+        "0.50": 0,
+        "0.60": 0,
+        "0.70": 0,
+        "0.80": 0,
+        "p90": 1334,
+        "p95": 667,
+        "p99": 134
+      },
+      "positive_count": 1762,
+      "positive_rate": 0.13218304576144035,
+      "volatility_mean_abs_delta": 0.04640667513012886,
+      "near_constant_rate_delta_lt_0_005": 0.09498086878235426,
+      "near_constant_rate_delta_lt_0_01": 0.18838622552329506,
+      "spike_count_delta_gt_0_05": 4738,
+      "autocorrelation": {
+        "lag_1": 0.5783951694169367,
+        "lag_5": 0.44463176640080243,
+        "lag_15": 0.40592549167418035,
+        "lag_30": 0.3908474897202481
+      }
+    }
+  },
+  "test_quiet": false,
+  "fixed_0_70_has_no_positive_test_cases": true,
+  "target_type": "proxy",
+  "provenance_ok": true,
+  "transparency": {
+    "source_provenance_full": true,
+    "license_full": true,
+    "citation_full": true,
+    "synthetic_flagged": true,
+    "raw_pii_handling_declared": true
+  },
+  "ready_for_training": true,
+  "ready_for_real_world_claim": false,
+  "ready_for_stress_benchmark": false,
+  "recommended_next_action": "Proceed with transparent training/evaluation using fixed source and threshold policy.",
+  "warnings": [
+    "threshold_0_70_has_no_positive_cases_in_test",
+    "target_is_proxy_not_measured_congestion"
+  ]
+}

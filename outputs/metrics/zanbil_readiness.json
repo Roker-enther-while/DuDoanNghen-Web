@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-05-26T06:19:19.155809+00:00",
+  "raw_path": "C:\\Users\\dhp01\\OneDrive\\Máy tính\\TCN-Attention-BiLSTM\\data\\raw\\zanbil\\access.log",
+  "raw_exists": false,
+  "file_size_bytes": 0,
+  "sample_line_count": 0,
+  "parsed_sample_count": 0,
+  "parser_ready": false,
+  "source_governance_ready": true,
+  "license_name": "CC0-1.0 Public Domain Dedication",
+  "citation": "Zaker, Farzin, 2019, Online Shopping Store - Web Server Logs, Harvard Dataverse, V1, https://doi.org/10.7910/DVN/3QBYB5",
+  "pii_policy": [
+    "hash_ip",
+    "drop_user_agent",
+    "drop_query_string",
+    "no_raw_release"
+  ],
+  "pii_policy_ready": true,
+  "ready_for_prepare": false,
+  "guidance": [
+    "Download the dataset from the source declared in configs/data/public_sources.yaml.",
+    "Place the authorized raw log at data/raw/zanbil/access.log.",
+    "Do not commit the raw log unless project policy explicitly allows it.",
+    "Run: python scripts/prepare_zanbil_logs.py --input data/raw/zanbil/access.log --config configs/data/zanbil_logs.yaml"
+  ]
+}

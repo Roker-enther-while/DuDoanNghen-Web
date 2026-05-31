@@ -1,0 +1,143 @@
+{
+  "raw_rows_parsed": 1154,
+  "raw_rows_skipped": 1,
+  "window_count": 215,
+  "time_range": {
+    "start": "1995-07-01T04:00:00+00:00",
+    "end": "1995-07-01T07:34:00+00:00"
+  },
+  "missing_timestamp_count": 0,
+  "duplicate_timestamp_count": 0,
+  "feature_stats": {
+    "request_count": {
+      "min": 2.0,
+      "max": 20.0,
+      "mean": 5.255813953488372,
+      "std": 2.715100094568565
+    },
+    "bytes_sum": {
+      "min": 2403.0,
+      "max": 48570.0,
+      "mean": 9491.586046511628,
+      "std": 5743.400031080423
+    },
+    "bytes_mean": {
+      "min": 1201.5,
+      "max": 2428.5,
+      "mean": 1796.6162790697674,
+      "std": 373.7768647451482
+    },
+    "bytes_max": {
+      "min": 1203.0,
+      "max": 2457.0,
+      "mean": 1803.0,
+      "std": 373.99524931692366
+    },
+    "bytes_p95": {
+      "min": 1202.85,
+      "max": 2454.15,
+      "mean": 1802.3616279069768,
+      "std": 373.9714207519211
+    },
+    "unique_hosts": {
+      "min": 2.0,
+      "max": 20.0,
+      "mean": 5.255813953488372,
+      "std": 2.715100094568565
+    },
+    "status_2xx": {
+      "min": 1.0,
+      "max": 18.0,
+      "mean": 4.2372093023255815,
+      "std": 2.663187743324255
+    },
+    "status_3xx": {
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "status_4xx": {
+      "min": 0.0,
+      "max": 2.0,
+      "mean": 0.9813953488372092,
+      "std": 0.1660145888146488
+    },
+    "status_5xx": {
+      "min": 0.0,
+      "max": 3.0,
+      "mean": 0.037209302325581395,
+      "std": 0.27024816830388754
+    },
+    "error_count": {
+      "min": 1.0,
+      "max": 3.0,
+      "mean": 1.0186046511627906,
+      "std": 0.16601458881464884
+    },
+    "error_rate": {
+      "min": 0.05263157894736842,
+      "max": 0.5,
+      "mean": 0.24382681224264488,
+      "std": 0.12375575988355376
+    },
+    "method_get": {
+      "min": 1.0,
+      "max": 17.0,
+      "mean": 4.223255813953489,
+      "std": 2.5693033359713757
+    },
+    "method_post": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.023255813953488372,
+      "std": 0.1507148999629735
+    },
+    "method_head": {
+      "min": 1.0,
+      "max": 2.0,
+      "mean": 1.0093023255813953,
+      "std": 0.0959989183281409
+    },
+    "method_other": {
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "throughput_bytes_per_min": {
+      "min": 2403.0,
+      "max": 48570.0,
+      "mean": 9491.586046511628,
+      "std": 5743.400031080423
+    },
+    "request_spike_score": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.10454195819786767,
+      "std": 0.17294615939045166
+    },
+    "congestion_score_proxy": {
+      "min": 0.04285714285714286,
+      "max": 0.8200000000000001,
+      "mean": 0.20477621623109135,
+      "std": 0.1167103149974282
+    }
+  },
+  "outlier_rate": {
+    "request_count": 0.023255813953488372,
+    "bytes_sum": 0.018604651162790697,
+    "error_rate": 0.0
+  },
+  "status_class_distribution": {
+    "status_2xx": 911,
+    "status_3xx": 0,
+    "status_4xx": 211,
+    "status_5xx": 8
+  },
+  "notes": [
+    "Dataset is suitable for minute-level HTTP workload time-series modeling.",
+    "NASA HTTP logs do not include true CPU, memory, or response-time telemetry.",
+    "Current congestion target is a proxy derived from request volume, bytes, hosts, errors, and spikes."
+  ]
+}

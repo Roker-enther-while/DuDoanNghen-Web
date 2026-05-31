@@ -1,0 +1,22 @@
+base_data: data/processed/nasa_http_3m/windows/windows_fp16.npz
+output_path: data/processed/synthetic_stress/windows/windows_fp16.npz
+seed: 42
+samples_per_scenario: 300
+background_ratio: 0.50
+pre_incident_ratio: 0.15
+incident_ratio: 0.25
+recovery_ratio: 0.10
+target_positive_ratio_min: 0.20
+target_positive_ratio_max: 0.40
+scenarios:
+  - flash_crowd
+  - burst_traffic
+  - error_surge
+  - slow_ramp
+  - periodic_spike
+  - mixed_incident
+policy:
+  is_synthetic: true
+  separate_from_real_test: true
+  allowed_result_type: synthetic_stress_test
+  warning: "Synthetic stress benchmark is generated from public real-data baseline and cannot support real-world performance claims."

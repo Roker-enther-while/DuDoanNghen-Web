@@ -1,0 +1,15 @@
+sources:
+  - nasa_jul95
+  - nasa_aug95
+window_minutes: 1
+lookback_steps: 60
+horizon_steps: 15
+split:
+  train: 0.70
+  val: 0.15
+  test: 0.15
+output_dtype: float16
+normalize: minmax
+target_mode: congestion_proxy
+smoke_limit_lines: 200000
+use_sample_data: false

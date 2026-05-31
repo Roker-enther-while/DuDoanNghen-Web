@@ -1,0 +1,25 @@
+{
+  "phase": "PHASE_2_DATA_PIPELINE",
+  "generated_at": "2026-05-31",
+  "source": "nasa_http_1995",
+  "raw_lines": 3461613,
+  "time_range": "1995-07-01 to 1995-08-31",
+  "preprocessing": {
+    "parse": "regex_parser",
+    "aggregate": "1_minute_window",
+    "normalize": "minmax_0_1",
+    "window": {"lookback": 60, "horizon": 15},
+    "split": {"train": 0.7, "val": 0.15, "test": 0.15},
+    "dtype": "float16"
+  },
+  "output": {
+    "train": {"windows": 62425, "shape": [62425, 60, 19]},
+    "val": {"windows": 13330, "shape": [13330, 60, 19]},
+    "test": {"windows": 13330, "shape": [13330, 60, 19]}
+  },
+  "features_count": 19,
+  "target": "target_next_congestion_score",
+  "target_type": "proxy",
+  "leakage_check": "chronological_split_no_shuffle",
+  "status": "done"
+}

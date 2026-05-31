@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-05-31",
+  "phase": "PHASE_0_INSPECT_LOCK_SCOPE",
+  "project_structure": {
+    "configs": 21,
+    "data": 32,
+    "docs": 4,
+    "outputs": 244,
+    "scripts": 25,
+    "src": 34,
+    "tests": 35
+  },
+  "framework": {
+    "language": "Python 3.10",
+    "framework": "PyTorch CUDA",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "mixed_precision": "AMP float16"
+  },
+  "data_status": {
+    "nasa_http_1995": {"status": "done", "path": "data/processed/nasa_http_3m/windows/windows_fp16.npz"},
+    "synthetic_stress": {"status": "done", "scenarios": 6, "samples": 1800},
+    "zanbil": {"status": "blocked", "reason": "raw_missing", "path": "data/raw/zanbil/access.log"},
+    "google_cluster": {"status": "declared_disabled"}
+  },
+  "models_status": {
+    "naive_last_value": "done",
+    "moving_average": "done",
+    "lstm": "done",
+    "gru": "done",
+    "tcn": "done",
+    "transformer": "done",
+    "tcn_lstm": "done",
+    "tcn_attention_bilstm": {"status": "done", "epochs": 120, "best_epoch": 30}
+  },
+  "completed_phases": [
+    "PHASE_2_DATA_PIPELINE",
+    "PHASE_3_MODEL_IMPLEMENTATION",
+    "PHASE_4_TRAINING_PIPELINE",
+    "PHASE_5_EVALUATION_COMPARISON",
+    "PHASE_9_TESTING"
+  ],
+  "partial_phases": [
+    "PHASE_1_CLEAN_ARCHITECTURE",
+    "PHASE_6_RECOMMENDATION_ENGINE",
+    "PHASE_7_DEMO",
+    "PHASE_10_FINAL_ACCEPTANCE"
+  ],
+  "blocked_phases": [
+    "PHASE_8_SCIENTIFIC_REPORT"
+  ],
+  "missing_vs_proposal": {
+    "response_time": {"available": false, "reason": "not_in_nasa_http"},
+    "cpu_usage": {"available": false, "reason": "not_in_nasa_http"},
+    "memory_usage": {"available": false, "reason": "not_in_nasa_http"},
+    "arima_baseline": {"available": false, "status": "optional"},
+    "recommendation_engine": {"available": true, "status": "prototype_only"},
+    "demo_terminal": {"available": false, "status": "not_created"},
+    "scientific_report_5chapters": {"available": false, "status": "not_created"}
+  },
+  "cleanup_done": [
+    "removed_cuda_dlls_from_docs",
+    "removed_redundant_inventory_reports",
+    "removed_cleanup_test"
+  ],
+  "test_result": {
+    "pytest_passed": 85,
+    "pytest_failed": 0
+  }
+}

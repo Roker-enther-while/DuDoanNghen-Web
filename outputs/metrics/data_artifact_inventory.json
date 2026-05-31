@@ -1,0 +1,606 @@
+{
+  "generated_at": "2026-05-25T14:28:02.852934+00:00",
+  "root": "data\\processed",
+  "artifacts": [
+    {
+      "path": "data\\processed\\nasa_http\\normalized\\test_fp16.npz",
+      "file_size_bytes": 2350,
+      "kind": "normalized_split",
+      "error": null,
+      "keys": [
+        "features",
+        "target",
+        "timestamps",
+        "feature_columns",
+        "target_column"
+      ],
+      "features_shape": [
+        33,
+        19
+      ],
+      "target_shape": [
+        33
+      ],
+      "features_dtype": "float16",
+      "target_dtype": "float16"
+    },
+    {
+      "path": "data\\processed\\nasa_http\\normalized\\test_fp32.npz",
+      "file_size_bytes": 2805,
+      "kind": "normalized_split",
+      "error": null,
+      "keys": [
+        "features",
+        "target",
+        "timestamps",
+        "feature_columns",
+        "target_column"
+      ],
+      "features_shape": [
+        33,
+        19
+      ],
+      "target_shape": [
+        33
+      ],
+      "features_dtype": "float32",
+      "target_dtype": "float32"
+    },
+    {
+      "path": "data\\processed\\nasa_http\\normalized\\train_fp16.npz",
+      "file_size_bytes": 4472,
+      "kind": "normalized_split",
+      "error": null,
+      "keys": [
+        "features",
+        "target",
+        "timestamps",
+        "feature_columns",
+        "target_column"
+      ],
+      "features_shape": [
+        150,
+        19
+      ],
+      "target_shape": [
+        150
+      ],
+      "features_dtype": "float16",
+      "target_dtype": "float16"
+    },
+    {
+      "path": "data\\processed\\nasa_http\\normalized\\train_fp32.npz",
+      "file_size_bytes": 5897,
+      "kind": "normalized_split",
+      "error": null,
+      "keys": [
+        "features",
+        "target",
+        "timestamps",
+        "feature_columns",
+        "target_column"
+      ],
+      "features_shape": [
+        150,
+        19
+      ],
+      "target_shape": [
+        150
+      ],
+      "features_dtype": "float32",
+      "target_dtype": "float32"
+    },
+    {
+      "path": "data\\processed\\nasa_http\\normalized\\val_fp16.npz",
+      "file_size_bytes": 2353,
+      "kind": "normalized_split",
+      "error": null,
+      "keys": [
+        "features",
+        "target",
+        "timestamps",
+        "feature_columns",
+        "target_column"
+      ],
+      "features_shape": [
+        32,
+        19
+      ],
+      "target_shape": [
+        32
+      ],
+      "features_dtype": "float16",
+      "target_dtype": "float16"
+    },
+    {
+      "path": "data\\processed\\nasa_http\\normalized\\val_fp32.npz",
+      "file_size_bytes": 2795,
+      "kind": "normalized_split",
+      "error": null,
+      "keys": [
+        "features",
+        "target",
+        "timestamps",
+        "feature_columns",
+        "target_column"
+      ],
+      "features_shape": [
+        32,
+        19
+      ],
+      "target_shape": [
+        32
+      ],
+      "features_dtype": "float32",
+      "target_dtype": "float32"
+    },
+    {
+      "path": "data\\processed\\nasa_http\\windows\\windows_fp16.npz",
+      "file_size_bytes": 8997,
+      "kind": "windows",
+      "error": null,
+      "keys": [
+        "X_train",
+        "y_train",
+        "ts_train",
+        "X_val",
+        "y_val",
+        "ts_val",
+        "X_test",
+        "y_test",
+        "ts_test",
+        "feature_columns",
+        "target_column",
+        "config"
+      ],
+      "train": {
+        "X_shape": [
+          120,
+          30,
+          19
+        ],
+        "y_shape": [
+          120
+        ],
+        "X_dtype": "float16",
+        "y_dtype": "float16",
+        "min": 0.0,
+        "max": 1.0,
+        "nan_count": 0,
+        "inf_count": 0
+      },
+      "val": {
+        "X_shape": [
+          2,
+          30,
+          19
+        ],
+        "y_shape": [
+          2
+        ],
+        "X_dtype": "float16",
+        "y_dtype": "float16",
+        "min": 0.0,
+        "max": 1.0,
+        "nan_count": 0,
+        "inf_count": 0
+      },
+      "test": {
+        "X_shape": [
+          3,
+          30,
+          19
+        ],
+        "y_shape": [
+          3
+        ],
+        "X_dtype": "float16",
+        "y_dtype": "float16",
+        "min": 0.0,
+        "max": 1.0,
+        "nan_count": 0,
+        "inf_count": 0
+      },
+      "artifact_scale": "smoke",
+      "is_train_ready": true
+    },
+    {
+      "path": "data\\processed\\nasa_http_3m\\normalized\\test_fp16.npz",
+      "file_size_bytes": 361213,
+      "kind": "normalized_split",
+      "error": null,
+      "keys": [
+        "features",
+        "target",
+        "timestamps",
+        "feature_columns",
+        "target_column"
+      ],
+      "features_shape": [
+        13390,
+        19
+      ],
+      "target_shape": [
+        13390
+      ],
+      "features_dtype": "float16",
+      "target_dtype": "float16"
+    },
+    {
+      "path": "data\\processed\\nasa_http_3m\\normalized\\test_fp32.npz",
+      "file_size_bytes": 531503,
+      "kind": "normalized_split",
+      "error": null,
+      "keys": [
+        "features",
+        "target",
+        "timestamps",
+        "feature_columns",
+        "target_column"
+      ],
+      "features_shape": [
+        13390,
+        19
+      ],
+      "target_shape": [
+        13390
+      ],
+      "features_dtype": "float32",
+      "target_dtype": "float32"
+    },
+    {
+      "path": "data\\processed\\nasa_http_3m\\normalized\\train_fp16.npz",
+      "file_size_bytes": 1502597,
+      "kind": "normalized_split",
+      "error": null,
+      "keys": [
+        "features",
+        "target",
+        "timestamps",
+        "feature_columns",
+        "target_column"
+      ],
+      "features_shape": [
+        62485,
+        19
+      ],
+      "target_shape": [
+        62485
+      ],
+      "features_dtype": "float16",
+      "target_dtype": "float16"
+    },
+    {
+      "path": "data\\processed\\nasa_http_3m\\normalized\\train_fp32.npz",
+      "file_size_bytes": 2201473,
+      "kind": "normalized_split",
+      "error": null,
+      "keys": [
+        "features",
+        "target",
+        "timestamps",
+        "feature_columns",
+        "target_column"
+      ],
+      "features_shape": [
+        62485,
+        19
+      ],
+      "target_shape": [
+        62485
+      ],
+      "features_dtype": "float32",
+      "target_dtype": "float32"
+    },
+    {
+      "path": "data\\processed\\nasa_http_3m\\normalized\\val_fp16.npz",
+      "file_size_bytes": 355562,
+      "kind": "normalized_split",
+      "error": null,
+      "keys": [
+        "features",
+        "target",
+        "timestamps",
+        "feature_columns",
+        "target_column"
+      ],
+      "features_shape": [
+        13390,
+        19
+      ],
+      "target_shape": [
+        13390
+      ],
+      "features_dtype": "float16",
+      "target_dtype": "float16"
+    },
+    {
+      "path": "data\\processed\\nasa_http_3m\\normalized\\val_fp32.npz",
+      "file_size_bytes": 525114,
+      "kind": "normalized_split",
+      "error": null,
+      "keys": [
+        "features",
+        "target",
+        "timestamps",
+        "feature_columns",
+        "target_column"
+      ],
+      "features_shape": [
+        13390,
+        19
+      ],
+      "target_shape": [
+        13390
+      ],
+      "features_dtype": "float32",
+      "target_dtype": "float32"
+    },
+    {
+      "path": "data\\processed\\nasa_http_3m\\windows\\windows_fp16.npz",
+      "file_size_bytes": 4071418,
+      "kind": "windows",
+      "error": null,
+      "keys": [
+        "X_train",
+        "y_train",
+        "ts_train",
+        "X_val",
+        "y_val",
+        "ts_val",
+        "X_test",
+        "y_test",
+        "ts_test",
+        "feature_columns",
+        "target_column",
+        "config"
+      ],
+      "train": {
+        "X_shape": [
+          62425,
+          60,
+          19
+        ],
+        "y_shape": [
+          62425
+        ],
+        "X_dtype": "float16",
+        "y_dtype": "float16",
+        "min": 0.0,
+        "max": 1.0,
+        "nan_count": 0,
+        "inf_count": 0
+      },
+      "val": {
+        "X_shape": [
+          13330,
+          60,
+          19
+        ],
+        "y_shape": [
+          13330
+        ],
+        "X_dtype": "float16",
+        "y_dtype": "float16",
+        "min": 0.0,
+        "max": 1.0,
+        "nan_count": 0,
+        "inf_count": 0
+      },
+      "test": {
+        "X_shape": [
+          13330,
+          60,
+          19
+        ],
+        "y_shape": [
+          13330
+        ],
+        "X_dtype": "float16",
+        "y_dtype": "float16",
+        "min": 0.0,
+        "max": 1.0,
+        "nan_count": 0,
+        "inf_count": 0
+      },
+      "artifact_scale": "large",
+      "is_train_ready": true
+    }
+  ],
+  "manifests": [
+    {
+      "run_id": "20260525T142726Z",
+      "started_at": "2026-05-25T14:27:26.594162+00:00",
+      "finished_at": "2026-05-25T14:27:26.710356+00:00",
+      "status": "success",
+      "config_path": "configs\\data\\nasa_http_smoke.yaml",
+      "config": {
+        "sources": [
+          "nasa_jul95"
+        ],
+        "limit_lines": 200000,
+        "window_minutes": 1,
+        "lookback_steps": 30,
+        "horizon_steps": 5,
+        "split": {
+          "train": 0.7,
+          "val": 0.15,
+          "test": 0.15
+        },
+        "output_dtype": "float16",
+        "normalize": "minmax",
+        "target_mode": "congestion_proxy",
+        "use_sample_data": true
+      },
+      "source_list": [
+        "nasa_jul95"
+      ],
+      "raw_manifest": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\TCN-Attention-BiLSTM\\outputs\\metrics\\raw_data_manifest.json",
+      "output_paths": {
+        "timeseries_csv": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\TCN-Attention-BiLSTM\\data\\processed\\nasa_http\\timeseries_1min.csv",
+        "timeseries_parquet": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\TCN-Attention-BiLSTM\\data\\processed\\nasa_http\\timeseries_1min.parquet",
+        "splits": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\TCN-Attention-BiLSTM\\data\\processed\\nasa_http\\splits",
+        "normalized": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\TCN-Attention-BiLSTM\\data\\processed\\nasa_http\\normalized",
+        "windows": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\TCN-Attention-BiLSTM\\data\\processed\\nasa_http\\windows\\windows_fp16.npz",
+        "scaler": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\TCN-Attention-BiLSTM\\data\\processed\\nasa_http\\scaler.json",
+        "quality_report": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\TCN-Attention-BiLSTM\\outputs\\metrics\\data_quality_report.json"
+      },
+      "row_counts": {
+        "raw_parsed": 1154,
+        "raw_skipped": 1
+      },
+      "split_counts": {
+        "train": 150,
+        "val": 32,
+        "test": 33
+      },
+      "feature_columns": [
+        "request_count",
+        "bytes_sum",
+        "bytes_mean",
+        "bytes_max",
+        "bytes_p95",
+        "unique_hosts",
+        "status_2xx",
+        "status_3xx",
+        "status_4xx",
+        "status_5xx",
+        "error_count",
+        "error_rate",
+        "method_get",
+        "method_post",
+        "method_head",
+        "method_other",
+        "throughput_bytes_per_min",
+        "request_spike_score",
+        "congestion_score_proxy"
+      ],
+      "target_column": "target_next_congestion_score",
+      "dtype": {
+        "normalized_fp32": "float32",
+        "normalized_fp16": "float16",
+        "windows": "float16"
+      },
+      "X_y_shapes": {
+        "X_train": {
+          "shape": [
+            120,
+            30,
+            19
+          ],
+          "dtype": "float16"
+        },
+        "y_train": {
+          "shape": [
+            120
+          ],
+          "dtype": "float16"
+        },
+        "X_val": {
+          "shape": [
+            2,
+            30,
+            19
+          ],
+          "dtype": "float16"
+        },
+        "y_val": {
+          "shape": [
+            2
+          ],
+          "dtype": "float16"
+        },
+        "X_test": {
+          "shape": [
+            3,
+            30,
+            19
+          ],
+          "dtype": "float16"
+        },
+        "y_test": {
+          "shape": [
+            3
+          ],
+          "dtype": "float16"
+        }
+      },
+      "quality_summary": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\TCN-Attention-BiLSTM\\outputs\\metrics\\data_quality_report.json",
+      "warnings": []
+    }
+  ],
+  "summary": {
+    "npz_count": 14,
+    "window_artifact_count": 2,
+    "largest_window_artifact": {
+      "path": "data\\processed\\nasa_http_3m\\windows\\windows_fp16.npz",
+      "file_size_bytes": 4071418,
+      "kind": "windows",
+      "error": null,
+      "keys": [
+        "X_train",
+        "y_train",
+        "ts_train",
+        "X_val",
+        "y_val",
+        "ts_val",
+        "X_test",
+        "y_test",
+        "ts_test",
+        "feature_columns",
+        "target_column",
+        "config"
+      ],
+      "train": {
+        "X_shape": [
+          62425,
+          60,
+          19
+        ],
+        "y_shape": [
+          62425
+        ],
+        "X_dtype": "float16",
+        "y_dtype": "float16",
+        "min": 0.0,
+        "max": 1.0,
+        "nan_count": 0,
+        "inf_count": 0
+      },
+      "val": {
+        "X_shape": [
+          13330,
+          60,
+          19
+        ],
+        "y_shape": [
+          13330
+        ],
+        "X_dtype": "float16",
+        "y_dtype": "float16",
+        "min": 0.0,
+        "max": 1.0,
+        "nan_count": 0,
+        "inf_count": 0
+      },
+      "test": {
+        "X_shape": [
+          13330,
+          60,
+          19
+        ],
+        "y_shape": [
+          13330
+        ],
+        "X_dtype": "float16",
+        "y_dtype": "float16",
+        "min": 0.0,
+        "max": 1.0,
+        "nan_count": 0,
+        "inf_count": 0
+      },
+      "artifact_scale": "large",
+      "is_train_ready": true
+    }
+  }
+}
