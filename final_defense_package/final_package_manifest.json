@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-05-31",
+  "project_status": "READY_FOR_DEMO",
+  "commit_hash": "86a58e1",
+  "metrics_v2": {
+    "model": "tcn_attention_bilstm",
+    "mae": 0.043053,
+    "rmse": 0.056036,
+    "r2": 0.339994,
+    "train_time_seconds": 1092.5,
+    "threshold": 0.183838,
+    "calibrated_f1": 0.865596,
+    "calibrated_recall": 0.979049
+  },
+  "files_created": [
+    "final_defense_package/bao_cao_nghien_cuu_final.md",
+    "final_defense_package/kich_ban_thuyet_trinh.md",
+    "final_defense_package/demo_checklist.md",
+    "final_defense_package/slide_outline.md",
+    "final_defense_package/quick_answer_qna.md",
+    "final_defense_package/README_DEMO.md",
+    "final_defense_package/final_package_manifest.json"
+  ],
+  "source_artifacts_used": [
+    "outputs/metrics/full_120_v2_tcn_attention_bilstm/final_metrics.json",
+    "outputs/metrics/18_terminal_demo_output.json",
+    "outputs/reports/23_final_hard_audit_report.md",
+    "outputs/reports/18_terminal_demo_report.md",
+    "outputs/web/research_defense_dashboard.html",
+    "outputs/figures/prediction_vs_actual.png",
+    "outputs/figures/error_distribution.png",
+    "outputs/figures/model_comparison_rmse.png",
+    "outputs/figures/training_curves.png",
+    "outputs/figures/early_warning_timeline.png",
+    "outputs/figures/synthetic_stress_scenarios.png"
+  ],
+  "limitations": [
+    "NASA HTTP 1995 is old data, no CPU/RAM/response time telemetry",
+    "Target is proxy congestion score, not measured congestion",
+    "Synthetic stress is controlled benchmark, not real-world",
+    "Zanbil raw log not provided, pipeline ready for extension",
+    "R²=0.34 has room for improvement",
+    "ARIMA baseline optional/partial"
+  ],
+  "verification_commands": [
+    "python -m pytest -q",
+    "python scripts/run_demo.py --sample synthetic --model best --explain --save-report",
+    "start outputs/web/research_defense_dashboard.html"
+  ],
+  "ready_for_demo": true
+}
