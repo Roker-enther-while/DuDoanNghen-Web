@@ -1,0 +1,10 @@
+variant,family
+persistence,baseline
+moving_average,baseline
+arima,baseline
+lstm32,neural_light
+bilstm32,neural_light
+tcn32,neural_light
+tcn_bilstm32_no_attn,neural_light
+tcn_bilstm32_temporal_attention,neural_light
+tcn_feature_attention_bilstm_temporal_attention,neural_light

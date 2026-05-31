@@ -1,0 +1,3 @@
+| model | rmse | r2 | f1 | behavior_note |
+|---|---|---|---|---|
+| arima | 4.789169763996206 | -124.26109224426534 | 0.0 | read_from_model_selection_metrics |

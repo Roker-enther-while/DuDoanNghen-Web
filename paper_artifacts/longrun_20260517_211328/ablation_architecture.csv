@@ -1,0 +1,5 @@
+variant,model,RMSE_mean,F1_mean
+TCN only,tcn32,14.37537227927799,0.0
+TCN + BiLSTM,tcn_bilstm32_no_attn,7.634849287798784,0.0
+TCN + BiLSTM + Temporal Attention,tcn_bilstm32_temporal_attention,6.411225479366564,0.0
+TCN + Feature Attention + BiLSTM + Temporal Attention,tcn_feature_attention_bilstm_temporal_attention,6.258838706532766,0.0

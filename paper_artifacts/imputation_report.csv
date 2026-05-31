@@ -1,0 +1,4 @@
+column,missing_before,missing_after_linear_fill
+request_rate,2,0
+error_rate,14,0
+response_time,2,0

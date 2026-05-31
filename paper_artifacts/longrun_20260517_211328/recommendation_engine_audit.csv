@@ -1,0 +1,5 @@
+case,alert,rule_hits,inference,recommendations
+normal,Normal,none,System operating normally.,No immediate action required.
+traffic,Critical,traffic_saturation,Traffic congestion detected due to high load.,Horizontal scaling: Increase replica count.; Enable/Adjust Load Balancing.; Enable request caching for static assets.
+memory,Warning,memory_or_error_saturation,Memory leak possibility or insufficient memory allocation.,Restart service instances to flush memory.; Increase memory allocation limit (Vertical scaling).; Investigate application heap dumps.
+anomaly,Critical,critical_anomaly,Unknown critical anomaly detected.,Investigate system logs immediately.

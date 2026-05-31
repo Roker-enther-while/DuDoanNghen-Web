@@ -1,0 +1,7 @@
+{
+  "train_windows": 1501,
+  "validation_windows": 272,
+  "window_size": 30,
+  "horizon": 1,
+  "classification_threshold": 104.16511535644531
+}
