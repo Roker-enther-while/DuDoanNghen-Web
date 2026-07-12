@@ -242,7 +242,7 @@ def run_rolling_cv(
                 "r2_diff": round(model_summary[proposed]["metrics"]["r2"]["mean"] - model_summary[model_name]["metrics"]["r2"]["mean"], 6),
                 "wilcoxon_p": round(r2_p, 6),
                 "cohens_d": round(cohens_d, 4),
-                "significant": r2_p < 0.05,
+                "significant": bool(r2_p < 0.05),
             })
 
     # Save summary
