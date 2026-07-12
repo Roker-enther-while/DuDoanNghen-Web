@@ -1,0 +1,18 @@
+{
+  "output": "Data\\testbed\\longrun_20260517_211328\\prometheus_metrics.csv",
+  "rows": 1802,
+  "start_epoch": 1779027208.399751,
+  "end_epoch": 1779036217.772775,
+  "step": "5s",
+  "queries": {
+    "cpu_usage": "sum(rate(container_cpu_usage_seconds_total{name=~\".*congestion-webapp.*\"}[1m]) or rate(container_cpu_usage_seconds_total{id=\"/docker\", cpu=\"total\"}[1m])) * 100",
+    "memory_usage": "sum(container_memory_working_set_bytes{name=~\".*congestion-webapp.*\"} or container_memory_working_set_bytes{id=\"/docker\"}) / 1024 / 1024",
+    "network_in": "sum(rate(container_network_receive_bytes_total{name=~\".*congestion-webapp.*\"}[1m]) or rate(container_network_receive_bytes_total{id=\"/\"}[1m]))",
+    "network_out": "sum(rate(container_network_transmit_bytes_total{name=~\".*congestion-webapp.*\"}[1m]) or rate(container_network_transmit_bytes_total{id=\"/\"}[1m]))",
+    "disk_io": "sum(rate(container_fs_reads_bytes_total{name=~\".*congestion-webapp.*\"}[1m]) + rate(container_fs_writes_bytes_total{name=~\".*congestion-webapp.*\"}[1m]) or rate(container_fs_reads_bytes_total{id=\"/docker\"}[1m]) + rate(container_fs_writes_bytes_total{id=\"/docker\"}[1m]))",
+    "request_rate": "sum(rate(webapp_requests_total[1m]))",
+    "error_rate": "sum(rate(webapp_requests_total{status=~\"5..\"}[1m])) / clamp_min(sum(rate(webapp_requests_total[1m])), 0.001) * 100",
+    "response_time": "sum(rate(webapp_request_latency_seconds_sum[1m])) / clamp_min(sum(rate(webapp_request_latency_seconds_count[1m])), 0.001) * 1000",
+    "inflight_requests": "sum(webapp_inflight_requests)"
+  }
+}

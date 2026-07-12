@@ -1,0 +1,169 @@
+{
+  "model": "tcn",
+  "category": "convolutional",
+  "status": "success",
+  "error": null,
+  "train_time_seconds": 299.3815079999986,
+  "inference_time_seconds": 0.22616819999893778,
+  "metrics": {
+    "mae": 0.043269930114852466,
+    "rmse": 0.05638013072488033,
+    "r2": 0.34578566136870825
+  },
+  "alert_metrics": {
+    "precision": 0.7142857142857143,
+    "recall": 0.0029394473838918285,
+    "f1": 0.00585480093676815,
+    "accuracy": 0.8602239051695753,
+    "alert_threshold": 0.180419921875,
+    "alert_positive_count_true": 1701,
+    "alert_positive_count_pred": 7,
+    "tp": 5,
+    "fp": 2,
+    "tn": 10445,
+    "fn": 1696,
+    "warning": null
+  },
+  "alert_threshold": 0.180419921875,
+  "alert_threshold_mode": "quantile",
+  "alert_threshold_value": 0.9,
+  "alert_threshold_reference_split": "val",
+  "evaluation_sample_strategy": "full",
+  "evaluation_sample_count": 12148,
+  "prediction_path": "outputs\\predictions\\ablation_tcn_only_seed456\\test_predictions.csv",
+  "model_path": "outputs\\models\\ablation_tcn_only_seed456\\best_model.pt",
+  "history_path": "outputs\\metrics\\ablation_tcn_only_seed456\\history.json",
+  "data_summary": {
+    "path": "data\\processed\\nasa_http_3m\\windows\\windows_fp16.npz",
+    "train": {
+      "X_shape": [
+        56906,
+        60,
+        19
+      ],
+      "y_shape": [
+        56906
+      ],
+      "X_dtype": "float16",
+      "y_dtype": "float16",
+      "min": 0.0,
+      "max": 1.0,
+      "nan_count": 0,
+      "inf_count": 0
+    },
+    "val": {
+      "X_shape": [
+        12147,
+        60,
+        19
+      ],
+      "y_shape": [
+        12147
+      ],
+      "X_dtype": "float16",
+      "y_dtype": "float16",
+      "min": 0.0,
+      "max": 1.0,
+      "nan_count": 0,
+      "inf_count": 0
+    },
+    "test": {
+      "X_shape": [
+        12148,
+        60,
+        19
+      ],
+      "y_shape": [
+        12148
+      ],
+      "X_dtype": "float16",
+      "y_dtype": "float16",
+      "min": 0.0,
+      "max": 1.0,
+      "nan_count": 0,
+      "inf_count": 0
+    },
+    "feature_columns": [
+      "request_count",
+      "bytes_sum",
+      "bytes_mean",
+      "bytes_max",
+      "bytes_p95",
+      "unique_hosts",
+      "status_2xx",
+      "status_3xx",
+      "status_4xx",
+      "status_5xx",
+      "error_count",
+      "error_rate",
+      "method_get",
+      "method_post",
+      "method_head",
+      "method_other",
+      "throughput_bytes_per_min",
+      "request_spike_score",
+      "congestion_score_proxy"
+    ],
+    "target_column": "target_next_congestion_score",
+    "warnings": []
+  },
+  "config": {
+    "backend": "torch",
+    "require_gpu": true,
+    "run_type": "ablation",
+    "output_tag": "ablation_tcn_only_seed456",
+    "artifact_name": "ablation_tcn_only_seed456",
+    "structured_output": true,
+    "seed": 456,
+    "max_train_samples": null,
+    "max_val_samples": null,
+    "max_test_samples": null,
+    "evaluation_sample_strategy": "full",
+    "filters": 64,
+    "kernel_size": 3,
+    "dilations": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "lstm_units": 32,
+    "attention_heads": 2,
+    "attention_key_dim": 16,
+    "dropout": 0.15,
+    "dense_units": 64,
+    "epochs": 60,
+    "batch_size": 128,
+    "learning_rate": 0.0007,
+    "optimizer": "adamw",
+    "weight_decay": 0.0001,
+    "mixed_precision": true,
+    "gradient_clip_norm": 1.0,
+    "early_stopping": false,
+    "checkpoint_every_epoch": true,
+    "resume": false,
+    "gpu_memory_limit_mb": 5120,
+    "gpu_data_buffer_mb": 1024,
+    "gpu_model_budget_mb": 4096,
+    "alert_threshold": {
+      "mode": "quantile",
+      "reference_split": "val",
+      "value": 0.9
+    },
+    "output_dir": "outputs"
+  },
+  "gpu_memory_plan": {
+    "backend": "torch",
+    "device": "cuda:0",
+    "cuda_available": true,
+    "device_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "vram_budget_mb": 5120,
+    "data_buffer_budget_mb": 1024,
+    "model_budget_mb": 4096,
+    "mixed_precision": true,
+    "checkpoint_dir": "outputs\\models\\ablation_tcn_only_seed456\\checkpoints",
+    "best_model_path": "outputs\\models\\ablation_tcn_only_seed456\\best_model.pt",
+    "last_model_path": "outputs\\models\\ablation_tcn_only_seed456\\last_model.pt"
+  },
+  "target_notice": "NASA target is a proxy congestion score, not a measured congestion label."
+}

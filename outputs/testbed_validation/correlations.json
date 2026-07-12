@@ -1,0 +1,172 @@
+{
+  "baseline": {
+    "latency_mean_ms": {
+      "label": "Latency Mean (ms)",
+      "n": 26,
+      "pearson_r": -0.3908,
+      "pearson_p": 0.048389,
+      "spearman_r": 0.154,
+      "spearman_p": 0.452467
+    },
+    "error_rate": {
+      "label": "Error Rate (%)",
+      "n": 26,
+      "pearson_r": 0.0,
+      "pearson_p": 1.0,
+      "spearman_r": 0.0,
+      "spearman_p": 1.0
+    },
+    "inflight": {
+      "label": "In-flight Requests",
+      "n": 26,
+      "pearson_r": 0.1001,
+      "pearson_p": 0.626601,
+      "spearman_r": 0.0143,
+      "spearman_p": 0.944693
+    },
+    "request_rate": {
+      "label": "Request Rate",
+      "n": 26,
+      "pearson_r": 0.2276,
+      "pearson_p": 0.263474,
+      "spearman_r": -0.0416,
+      "spearman_p": 0.840088
+    }
+  },
+  "gradual": {
+    "latency_mean_ms": {
+      "label": "Latency Mean (ms)",
+      "n": 26,
+      "pearson_r": -0.0717,
+      "pearson_p": 0.727772,
+      "spearman_r": -0.0581,
+      "spearman_p": 0.777893
+    },
+    "error_rate": {
+      "label": "Error Rate (%)",
+      "n": 26,
+      "pearson_r": 0.0,
+      "pearson_p": 1.0,
+      "spearman_r": 0.0,
+      "spearman_p": 1.0
+    },
+    "inflight": {
+      "label": "In-flight Requests",
+      "n": 26,
+      "pearson_r": 0.3311,
+      "pearson_p": 0.098482,
+      "spearman_r": 0.452,
+      "spearman_p": 0.020438
+    },
+    "request_rate": {
+      "label": "Request Rate",
+      "n": 26,
+      "pearson_r": 0.8232,
+      "pearson_p": 0.0,
+      "spearman_r": 0.819,
+      "spearman_p": 0.0
+    }
+  },
+  "spike": {
+    "latency_mean_ms": {
+      "label": "Latency Mean (ms)",
+      "n": 26,
+      "pearson_r": -0.1548,
+      "pearson_p": 0.450227,
+      "spearman_r": -0.0946,
+      "spearman_p": 0.645711
+    },
+    "error_rate": {
+      "label": "Error Rate (%)",
+      "n": 26,
+      "pearson_r": 0.0,
+      "pearson_p": 1.0,
+      "spearman_r": 0.0,
+      "spearman_p": 1.0
+    },
+    "inflight": {
+      "label": "In-flight Requests",
+      "n": 26,
+      "pearson_r": -0.0557,
+      "pearson_p": 0.786903,
+      "spearman_r": -0.0222,
+      "spearman_p": 0.914113
+    },
+    "request_rate": {
+      "label": "Request Rate",
+      "n": 26,
+      "pearson_r": 0.8202,
+      "pearson_p": 0.0,
+      "spearman_r": 0.791,
+      "spearman_p": 2e-06
+    }
+  },
+  "stress": {
+    "latency_mean_ms": {
+      "label": "Latency Mean (ms)",
+      "n": 42,
+      "pearson_r": -0.1737,
+      "pearson_p": 0.271383,
+      "spearman_r": -0.2752,
+      "spearman_p": 0.077694
+    },
+    "error_rate": {
+      "label": "Error Rate (%)",
+      "n": 42,
+      "pearson_r": 0.0,
+      "pearson_p": 1.0,
+      "spearman_r": 0.0,
+      "spearman_p": 1.0
+    },
+    "inflight": {
+      "label": "In-flight Requests",
+      "n": 42,
+      "pearson_r": 0.2049,
+      "pearson_p": 0.193127,
+      "spearman_r": 0.1743,
+      "spearman_p": 0.269497
+    },
+    "request_rate": {
+      "label": "Request Rate",
+      "n": 42,
+      "pearson_r": -0.013,
+      "pearson_p": 0.9347,
+      "spearman_r": 0.8487,
+      "spearman_p": 0.0
+    }
+  },
+  "overall": {
+    "latency_mean_ms": {
+      "label": "Latency Mean (ms)",
+      "n": 120,
+      "pearson_r": -0.0667,
+      "pearson_p": 0.469413,
+      "spearman_r": -0.1631,
+      "spearman_p": 0.075025
+    },
+    "error_rate": {
+      "label": "Error Rate (%)",
+      "n": 120,
+      "pearson_r": 0.0,
+      "pearson_p": 1.0,
+      "spearman_r": 0.0,
+      "spearman_p": 1.0
+    },
+    "inflight": {
+      "label": "In-flight Requests",
+      "n": 120,
+      "pearson_r": -0.2891,
+      "pearson_p": 0.001361,
+      "spearman_r": -0.0084,
+      "spearman_p": 0.927515
+    },
+    "request_rate": {
+      "label": "Request Rate",
+      "n": 120,
+      "pearson_r": -0.0577,
+      "pearson_p": 0.531598,
+      "spearman_r": 0.1999,
+      "spearman_p": 0.028587
+    }
+  }
+}
