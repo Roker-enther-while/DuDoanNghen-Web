@@ -1,0 +1,9 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "name": "DataCenter Traces Dataset",
+  "description": "This dataset provides machine learning and AI traces from data centers.",
+  "identifier": "https://doi.org/10.5281/zenodo.14564847",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "accessLevel": "open"
+}
