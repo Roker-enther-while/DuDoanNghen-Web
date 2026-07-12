@@ -8,12 +8,15 @@ Mục tiêu cuối cùng: biến repository này thành một hệ thống nghi�
 
 ## CURRENT STATE
 
-Research Integrity Upgrade Complete (2026-07-11):
+Research Integrity Upgrade Complete (2026-07-12):
 - Data pipeline: 3.46M NASA records → 81K windows (56,906 train / 12,147 val / 12,148 test)
 - Proposed model trained: MAE=0.0435, RMSE=0.0562, R²=0.349
-- Ablation study: 6 variants × 3 seeds, full model does NOT win
-- Proxy validation: proxy score measures load, NOT congestion (r=-0.54 with response_time)
+- Ablation study: 8 variants × 3 seeds, full model does NOT win
+- Proxy validation: proxy score measures load, NOT congestion (r=-0.07 with latency)
+- Rolling CV: 5 folds, all models negative R² (don't generalize with limited data)
+- Data provenance: 5 synthetic files relabeled, 3 real traces from Zenodo verified
 - Honest limitations documented
+- Git: 8 commits, no remote configured
 
 ## DONE (Pre-Upgrade)
 
