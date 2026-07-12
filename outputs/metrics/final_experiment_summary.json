@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-05-26T06:22:07.207364+00:00",
+  "completion_state": "STATE B FALLBACK COMPLETE",
+  "state_reason": "Zanbil raw is missing or invalid; multi-source manifest remains NASA-only",
+  "source_governance": {
+    "valid_source_count": 3,
+    "rejected_source_count": 2,
+    "sources": [
+      "nasa_http_1995",
+      "zanbil_web_logs",
+      "synthetic_stress_public_baseline"
+    ],
+    "path": "outputs/metrics/source_license_manifest.json"
+  },
+  "zanbil_status": {
+    "raw_found_or_imported": false,
+    "parser_ready": false,
+    "ready_for_prepare": false,
+    "candidate_count": 3,
+    "parseable_candidate_count": 0,
+    "required_path": "data/raw/zanbil/access.log",
+    "readiness_path": "outputs/metrics/zanbil_readiness.json",
+    "candidate_path": "outputs/metrics/zanbil_raw_candidates.json"
+  },
+  "multi_source_status": {
+    "sources": [
+      "nasa_http_1995"
+    ],
+    "ready_for_cross_source_claim": false,
+    "warnings": [
+      "multi_source_contains_single_source_only"
+    ],
+    "manifest_path": "outputs/metrics/multi_source_manifest.json"
+  },
+  "nasa_only_real_public_proxy_result": {
+    "metrics": {
+      "mae": 0.04279174384705035,
+      "rmse": 0.056398649724090116,
+      "r2": 0.3314300649004034
+    },
+    "alert_metrics": {
+      "precision": 0.8125,
+      "recall": 0.0073654390934844195,
+      "f1": 0.014598540145985401,
+      "accuracy": 0.8683420855213804,
+      "alert_threshold": 0.183837890625,
+      "alert_positive_count_true": 1765,
+      "alert_positive_count_pred": 16,
+      "tp": 13,
+      "fp": 3,
+      "tn": 11562,
+      "fn": 1752,
+      "warning": null
+    },
+    "target_notice": "NASA target is a proxy congestion score, not a measured congestion label.",
+    "final_metrics_path": "outputs/metrics/full_120_tcn_attention_bilstm/final_metrics.json"
+  },
+  "threshold_calibration": {
+    "available": true,
+    "path": "outputs/metrics/full_120_tcn_attention_bilstm/threshold_calibration.json",
+    "old_threshold": 0.183837890625,
+    "calibrated_threshold": 0.05,
+    "calibrated_test_metrics": {
+      "precision": 0.7757060813468649,
+      "recall": 0.9790487538476814,
+      "f1": 0.8655956456851901,
+      "accuracy": 0.7702925731432858,
+      "alert_threshold": 0.05,
+      "alert_positive_count_true": 10071,
+      "alert_positive_count_pred": 12711,
+      "tp": 9860,
+      "fp": 2851,
+      "tn": 408,
+      "fn": 211,
+      "warning": null
+    }
+  },
+  "synthetic_stress_result_separate": {
+    "available": true,
+    "result_type": "synthetic_stress_test",
+    "synthetic_not_real_world": true,
+    "checkpoint_threshold_metrics": {
+      "threshold": 0.183837890625,
+      "precision": 1.0,
+      "recall": 0.29814814814814816,
+      "f1": 0.45934379457917257,
+      "accuracy": 0.7894444444444444,
+      "tp": 161,
+      "fp": 0,
+      "tn": 1260,
+      "fn": 379,
+      "positive_true_count": 540,
+      "positive_pred_count": 161
+    },
+    "best_synthetic_f1_threshold": {
+      "threshold": 0.15000000000000002,
+      "precision": 0.577639751552795,
+      "recall": 0.5166666666666667,
+      "f1": 0.5454545454545454,
+      "accuracy": 0.7416666666666667,
+      "tp": 279,
+      "fp": 204,
+      "tn": 1056,
+      "fn": 261,
+      "positive_true_count": 540,
+      "positive_pred_count": 483
+    },
+    "path": "outputs/synthetic_stress_eval/full_120_tcn_attention_bilstm/metrics.json"
+  },
+  "inventory_path": "outputs/metrics/current_artifact_inventory.json",
+  "artifact_count": 16,
+  "limitations": [
+    "NASA target is a proxy congestion score, not measured congestion.",
+    "Synthetic stress benchmark is not real-world data and is reported separately.",
+    "No cross-source claim is allowed until Zanbil raw is imported and processed.",
+    "Only sources with license/citation in source governance may be used."
+  ],
+  "next_action": "Place a valid Zanbil raw log at data/raw/zanbil/access.log, then rerun the autonomous goal.",
+  "output_paths": {
+    "source_license_manifest": "outputs/metrics/source_license_manifest.json",
+    "raw_candidates": "outputs/metrics/zanbil_raw_candidates.json",
+    "zanbil_readiness": "outputs/metrics/zanbil_readiness.json",
+    "synthetic_eval": "outputs/synthetic_stress_eval/full_120_tcn_attention_bilstm/metrics.json",
+    "final_summary_json": "outputs/metrics/final_experiment_summary.json",
+    "final_summary_md": "outputs/reports/final_experiment_summary.md"
+  }
+}
