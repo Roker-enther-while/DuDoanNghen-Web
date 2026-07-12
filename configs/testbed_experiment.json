@@ -1,0 +1,22 @@
+{
+  "architecture_name": "TCN + Feature Attention + BiLSTM + Temporal Attention",
+  "testbed": {
+    "compose_file": "testbed/docker-compose.yml",
+    "prometheus_url": "http://localhost:9090",
+    "webapp_url": "http://localhost:8080"
+  },
+  "load_profiles": ["normal", "gradual", "spike", "stress", "recovery"],
+  "collector": {
+    "step": "5s",
+    "default_minutes": 30,
+    "raw_csv": "Data/testbed/prometheus_metrics.csv",
+    "labeled_csv": "Data/testbed/testbed_labeled.csv",
+    "harmonized_csv": "Data/testbed/testbed_harmonized.csv"
+  },
+  "paper_artifacts": {
+    "output_dir": "paper_artifacts",
+    "seeds": [42, 123, 2026],
+    "no_fabricated_numbers": true
+  }
+}
+

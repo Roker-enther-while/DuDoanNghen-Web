@@ -1,0 +1,43 @@
+backend: torch
+require_gpu: true
+run_type: ablation
+output_tag: ablation_tcn_bilstm
+artifact_name: ablation_tcn_bilstm
+structured_output: true
+seed: 42
+
+max_train_samples:
+max_val_samples:
+max_test_samples:
+evaluation_sample_strategy: full
+
+filters: 64
+kernel_size: 3
+dilations: [1, 2, 4, 8]
+lstm_units: 32
+attention_heads: 2
+attention_key_dim: 16
+dropout: 0.15
+dense_units: 64
+
+epochs: 60
+batch_size: 128
+learning_rate: 0.0007
+optimizer: adamw
+weight_decay: 0.0001
+mixed_precision: true
+gradient_clip_norm: 1.0
+early_stopping: false
+checkpoint_every_epoch: true
+resume: false
+
+gpu_memory_limit_mb: 5120
+gpu_data_buffer_mb: 1024
+gpu_model_budget_mb: 4096
+
+alert_threshold:
+  mode: quantile
+  reference_split: val
+  value: 0.90
+
+output_dir: outputs

@@ -1,0 +1,12 @@
+output_path: data/processed/multi_source_web_logs/windows/windows_fp16.npz
+split_mode: chronological_within_source
+license_manifest: configs/data/public_sources.yaml
+inputs:
+  - source_id: nasa_http_1995
+    path: data/processed/nasa_http_3m/windows/windows_fp16.npz
+  - source_id: zanbil_web_logs
+    path: data/processed/zanbil/windows/windows_fp16.npz
+    optional: true
+notes:
+  - "Source identity is preserved as source_id_train/source_id_val/source_id_test arrays."
+  - "leave_one_source_out mode should be used for cross-source generalization evaluation."

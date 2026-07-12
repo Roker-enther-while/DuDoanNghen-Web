@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files (large)
+data/processed/**/*.npz
+data/processed/**/*.csv
+data/processed/**/*.parquet
+data/raw/**/*.gz
+data/raw/**/*.log
+data/raw/**/*.zip
+
+# Model checkpoints
+outputs/models/**/*.pt
+outputs/models/**/*.keras
+outputs/models/**/*.h5
+outputs/models/**/checkpoints/
+
+# Predictions (large CSV)
+outputs/predictions/**/*.csv
+
+# Figures (regenerate with scripts/generate_figures.py)
+outputs/figures/*.png
+
+# Temporary outputs
+outputs/metrics/*_history.json
+outputs/metrics/*_training_log.csv
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# CUDA DLLs
+*.dll

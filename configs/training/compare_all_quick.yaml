@@ -1,0 +1,43 @@
+seed: 42
+epochs: 3
+batch_size: 64
+learning_rate: 0.001
+max_train_samples: 10000
+max_val_samples: 2000
+max_test_samples: 2000
+alert_threshold: 0.70
+output_dir: outputs
+backend: torch
+require_gpu: true
+early_stopping: true
+patience: 3
+reduce_lr_on_plateau: true
+model_checkpoint: true
+csv_logger: true
+mixed_precision: true
+gpu_memory_limit_mb: 5120
+gpu_data_buffer_mb: 1024
+gpu_model_budget_mb: 4096
+verbose: 0
+average_steps: 5
+d_model: 64
+num_heads: 4
+ff_dim: 128
+num_blocks: 1
+filters: 32
+kernel_size: 3
+dilations: [1, 2, 4]
+attention_heads: 4
+attention_key_dim: 16
+lstm_units: 32
+dense_units: 32
+dropout: 0.1
+models:
+  - naive_last_value
+  - moving_average
+  - lstm
+  - gru
+  - tcn
+  - transformer
+  - tcn_lstm
+  - tcn_attention_bilstm

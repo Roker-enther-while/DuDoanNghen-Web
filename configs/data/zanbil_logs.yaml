@@ -1,0 +1,18 @@
+source_id: zanbil_web_logs
+input_path: data/raw/zanbil/access.log
+output_root: data/processed/zanbil
+window_minutes: 1
+lookback_steps: 60
+horizon_steps: 15
+limit_lines: null
+parser_min_parse_rate: 0.20
+privacy:
+  hash_ip: true
+  salt_env_var: ZANBIL_HASH_SALT
+  drop_user_agent: true
+  drop_query_string: true
+license_manifest: configs/data/public_sources.yaml
+notes:
+  - "Do not auto-download Kaggle/Dataverse raw file."
+  - "Place an authorized local copy at data/raw/zanbil/access.log."
+  - "Processed outputs keep source_id and hashed client counts only."

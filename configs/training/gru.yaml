@@ -1,0 +1,14 @@
+seed: 42
+epochs: 20
+batch_size: 64
+learning_rate: 0.001
+max_train_samples:
+max_val_samples:
+max_test_samples:
+alert_threshold: 0.70
+output_dir: outputs
+early_stopping: true
+early_stopping_patience: 3
+verbose: 1
+units: 32
+dropout: 0.1

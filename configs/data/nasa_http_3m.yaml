@@ -1,0 +1,19 @@
+sources:
+  - nasa_jul95
+  - nasa_aug95
+window_minutes: 1
+lookback_steps: 60
+horizon_steps: 15
+split:
+  train: 0.70
+  val: 0.15
+  test: 0.15
+output_dtype: float16
+normalize: minmax
+target_mode: congestion_proxy
+use_sample_data: false
+output_root: data/processed/nasa_http_3m
+selection_notes:
+  - NASA Jul/Aug 1995 has about 3.46M public HTTP requests.
+  - It includes natural workload spikes, 4xx/5xx errors, host diversity, byte variance, and an outage period.
+  - Google Cluster 2019 is intentionally not downloaded here.
