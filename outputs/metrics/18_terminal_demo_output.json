@@ -1,0 +1,25 @@
+{
+  "demo_timestamp": "20260531_161943",
+  "sample_type": "synthetic",
+  "model": "tcn_attention_bilstm",
+  "predicted_score": 0.642102,
+  "calibrated_threshold": 0.05,
+  "recommendation": {
+    "risk_level": "CRITICAL",
+    "risk_score": 0.6421,
+    "reason": "Score significantly above threshold",
+    "recommended_actions": [
+      "scale_up_cpu",
+      "add_instance",
+      "enable_cache",
+      "rate_limit",
+      "investigate_anomaly"
+    ],
+    "explanation": "Nguy co nghen cao! Can scale up ngay, bat cache, rate limit va dieu tra anomaly."
+  },
+  "metrics": {
+    "mae": 0.04305304454273453,
+    "rmse": 0.05603628142144909,
+    "r2": 0.33999375396201215
+  }
+}

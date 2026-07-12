@@ -1,0 +1,5 @@
+{
+  "architecture_name": "TCN + Feature Attention + BiLSTM + Temporal Attention",
+  "output_dir": "paper_artifacts",
+  "no_fabricated_numbers": true
+}

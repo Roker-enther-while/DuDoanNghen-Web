@@ -1,0 +1,8 @@
+{
+  "type": "moving_average",
+  "average_steps": 5,
+  "feature_name": "congestion_score_proxy",
+  "feature_index": 18,
+  "fallback_value": 0.15528617799282074,
+  "note": "Simple comparison baseline, not an optimized forecasting model."
+}

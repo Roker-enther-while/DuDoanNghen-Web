@@ -1,0 +1,62 @@
+{
+  "audit_date": "2026-05-31",
+  "auditor": "Claude Code Agent",
+  "project": "TCN-Attention-BiLSTM Web Congestion Prediction",
+  "audit_result": "READY FOR DEMO",
+  "phase_1_file_existence": {
+    "total": 15,
+    "passed": 15,
+    "failed": 0,
+    "status": "PASS"
+  },
+  "phase_2_command_audit": {
+    "pytest": {"status": "PASS", "tests": 83, "runtime": "9.36s"},
+    "generate_figures": {"status": "PASS", "figures": 6},
+    "run_demo": {"status": "PASS", "output": "JSON + MD saved"},
+    "total": 3,
+    "passed": 3,
+    "status": "PASS"
+  },
+  "phase_3_metrics_consistency": {
+    "model": "tcn_attention_bilstm",
+    "mae": 0.04305304454273453,
+    "rmse": 0.05603628142144909,
+    "r2": 0.33999375396201215,
+    "threshold": 0.183837890625,
+    "train_time_seconds": 1092.526675799998,
+    "status": "PASS"
+  },
+  "phase_4_demo_output": {
+    "demo_timestamp": "20260531_161549",
+    "sample_type": "synthetic",
+    "model": "tcn_attention_bilstm",
+    "predicted_score": 0.642102,
+    "risk_level": "CRITICAL",
+    "reason": "Score significantly above threshold",
+    "recommended_actions": 5,
+    "status": "PASS"
+  },
+  "phase_5_dashboard": {
+    "tcn_attention_bilstm_mentions": 5,
+    "nasa_http_1995_mentions": 5,
+    "proxy_congestion_mentions": 4,
+    "zanbil_mentions": 6,
+    "demo_ready_mentions": 4,
+    "status": "PASS"
+  },
+  "failures": [],
+  "blocked": [
+    {
+      "item": "Zanbil raw",
+      "reason": "data/raw/zanbil/access.log missing",
+      "guide": "data/raw/zanbil/README_ZANBIL_INPUT.md",
+      "blocking_main_demo": false
+    }
+  ],
+  "evidence": {
+    "pytest_output": "83 passed in 9.36s",
+    "figures_generated": 6,
+    "demo_output": "outputs/metrics/18_terminal_demo_output.json",
+    "metrics_source": "outputs/metrics/full_120_v2_tcn_attention_bilstm/final_metrics.json"
+  }
+}

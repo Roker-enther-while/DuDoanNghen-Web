@@ -1,0 +1,13 @@
+[windows] train=(60000, 30, 13) val=(20000, 30, 13)
+C:\Users\dhp01\OneDrive\Máy tính\AI_du_doan\src\tools\run_model_selection.py:72: RuntimeWarning: invalid value encountered in divide
+  smape = float(np.mean(np.where(denom > 0, 2 * np.abs(y_pred - y_true) / denom, 0)) * 100)
+C:\Users\dhp01\AppData\Local\Programs\Python\Python310\lib\site-packages\google\api_core\_python_version_support.py:275: FutureWarning: You are using a Python version (3.10.6) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+{
+  "report_exists": true,
+  "model_ranking_exists": true,
+  "raw_console_exists": true,
+  "best_model_checkpoint_exists": true,
+  "report_path": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\AI_du_doan\\paper_artifacts\\model_selection_seed_123\\NCKH_BIGLOGS_MODEL_SELECTION_REPORT.md"
+}
+C:\Users\dhp01\OneDrive\Máy tính\AI_du_doan\paper_artifacts\model_selection_seed_123\NCKH_BIGLOGS_MODEL_SELECTION_REPORT.md

@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-05-31",
+  "proposal_source": "inferred_from_project_history",
+  "need_confirmation": true,
+  "title": "Dự đoán nghẽn hệ thống web bằng mô hình trí tuệ nhân tạo dựa trên chuỗi thời gian",
+  "original_goal": "Nghiên cứu và đề xuất mô hình AI dựa trên dữ liệu chuỗi thời gian để dự đoán sớm nguy cơ nghẽn hệ thống web",
+  "desired_features": {
+    "request_traffic": {"available": true, "nasa_field": "request_count"},
+    "cpu_usage": {"available": false, "reason": "not_in_http_log"},
+    "memory_usage": {"available": false, "reason": "not_in_http_log"},
+    "response_time": {"available": false, "reason": "not_in_http_log"},
+    "throughput": {"available": true, "nasa_field": "throughput_bytes_per_min", "note": "approximated from bytes"}
+  },
+  "models": {
+    "moving_average": {"trained": true},
+    "arima_holt_winters": {"trained": false, "status": "planned"},
+    "lstm": {"trained": true},
+    "gru": {"trained": true},
+    "tcn": {"trained": true},
+    "transformer_attention": {"trained": true},
+    "tcn_attention_bilstm": {"trained": true, "epochs": 120, "status": "proposed_model"}
+  },
+  "optimization": {
+    "normalization_0_1": {"done": true},
+    "mixed_precision_fp16": {"done": true},
+    "turboquant": {"done": false, "status": "not_implemented"},
+    "gpu_ada_lovelace": {"done": true, "device": "NVIDIA GeForce RTX 4060 Laptop GPU"}
+  },
+  "evaluation_metrics": {
+    "mae": 0.04279174384705035,
+    "rmse": 0.056398649724090116,
+    "r2": 0.3314300649004034,
+    "precision": 0.8125,
+    "recall": 0.0073654390934844195,
+    "f1": 0.014598540145985401,
+    "confusion_matrix": {"tp": 13, "fp": 3, "tn": 11562, "fn": 1752}
+  },
+  "deliverables": {
+    "research_report": {"exists": true, "path": "outputs/reports/final_state_b_research_summary.md"},
+    "model": {"exists": true, "path": "outputs/models/full_120_tcn_attention_bilstm/best_model.pt"},
+    "dataset": {"exists": true, "path": "data/processed/nasa_http_3m/windows/windows_fp16.npz"},
+    "source_code": {"exists": true, "path": "src/"},
+    "dashboard_demo": {"exists": true, "path": "outputs/web/final_state_b_dashboard_payload.json"},
+    "experiment_results": {"exists": true, "path": "outputs/metrics/"}
+  },
+  "data_sources": {
+    "nasa_http_1995": {"used": true, "status": "valid"},
+    "google_trace": {"used": false, "status": "declared_disabled"},
+    "zanbil": {"used": false, "status": "raw_missing", "missing_path": "data/raw/zanbil/access.log"},
+    "synthetic_scenarios": {"used": true, "count": 6, "samples": 1800}
+  }
+}

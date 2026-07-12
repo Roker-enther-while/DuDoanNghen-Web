@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-05-26T06:19:19.189828+00:00",
+  "candidate_count": 3,
+  "parseable_candidate_count": 0,
+  "candidates": [
+    {
+      "path": "C:\\Users\\dhp01\\OneDrive\\Máy tính\\TCN-Attention-BiLSTM\\data\\raw\\nasa_http\\NASA_access_log_Jul95.gz",
+      "size_bytes": 20676672,
+      "extension": ".gz",
+      "sha256": "199109ed0f273e095da6ccd5fc9dc4cd8bb58daa06d62135e62090fea9d27488",
+      "sample_first_lines_masked": [
+        "199.72.81.55 - - [01/Jul/1995:00:00:01 -0400] \"GET /history/apollo/ HTTP/1.0\" 200 6245",
+        "unicomp6.unicomp.net - - [01/Jul/1995:00:00:06 -0400] \"GET /shuttle/countdown/ HTTP/1.0\" 200 3985",
+        "199.120.110.21 - - [01/Jul/1995:00:00:09 -0400] \"GET /shuttle/missions/sts-73/mission-sts-73.html HTTP/1.0\" 200 4085",
+        "burger.letters.com - - [01/Jul/1995:00:00:11 -0400] \"GET /shuttle/countdown/liftoff.html HTTP/1.0\" 304 0",
+        "199.120.110.21 - - [01/Jul/1995:00:00:11 -0400] \"GET /shuttle/missions/sts-73/sts-73-patch-small.gif HTTP/1.0\" 200 4179"
+      ],
+      "parser_can_parse": false,
+      "parsed_sample_count": 5,
+      "estimated_log_format": "unknown",
+      "archive_member": null,
+      "reason_if_rejected": "known_nasa_source_not_zanbil"
+    },
+    {
+      "path": "C:\\Users\\dhp01\\OneDrive\\Máy tính\\TCN-Attention-BiLSTM\\data\\raw\\nasa_http\\NASA_access_log_Aug95.gz",
+      "size_bytes": 16633316,
+      "extension": ".gz",
+      "sha256": "14995aed0ba4558ab832613ebea9a3ef2d87cb4297fc67f5694e0032bbb6b788",
+      "sample_first_lines_masked": [
+        "in24.inetnebr.com - - [01/Aug/1995:00:00:01 -0400] \"GET /shuttle/missions/sts-68/news/sts-68-mcc-05.txt HTTP/1.0\" 200 1839",
+        "uplherc.upl.com - - [01/Aug/1995:00:00:07 -0400] \"GET / HTTP/1.0\" 304 0",
+        "uplherc.upl.com - - [01/Aug/1995:00:00:08 -0400] \"GET /images/ksclogo-medium.gif HTTP/1.0\" 304 0",
+        "uplherc.upl.com - - [01/Aug/1995:00:00:08 -0400] \"GET /images/MOSAIC-logosmall.gif HTTP/1.0\" 304 0",
+        "uplherc.upl.com - - [01/Aug/1995:00:00:08 -0400] \"GET /images/USA-logosmall.gif HTTP/1.0\" 304 0"
+      ],
+      "parser_can_parse": false,
+      "parsed_sample_count": 5,
+      "estimated_log_format": "unknown",
+      "archive_member": null,
+      "reason_if_rejected": "known_nasa_source_not_zanbil"
+    },
+    {
+      "path": "C:\\Users\\dhp01\\OneDrive\\Máy tính\\TCN-Attention-BiLSTM\\data\\raw\\nasa_http\\nasa_smoke_sample.log.gz",
+      "size_bytes": 7660,
+      "extension": ".gz",
+      "sha256": "ad8870da7043b6eab8f023e620bc974114b7f036721f1cbd0858bb93341556d1",
+      "sample_first_lines_masked": [
+        "host0.example.com - - [01/Jul/1995:00:00:00 -0400] \"HEAD /resource/0.html HTTP/1.0\" 500 1200",
+        "host1.example.com - - [01/Jul/1995:00:00:01 -0400] \"GET /resource/0.html HTTP/1.0\" 200 1203",
+        "host2.example.com - - [01/Jul/1995:00:00:02 -0400] \"GET /resource/0.html HTTP/1.0\" 200 1206",
+        "host3.example.com - - [01/Jul/1995:00:00:03 -0400] \"GET /resource/0.html HTTP/1.0\" 200 1209",
+        "host4.example.com - - [01/Jul/1995:00:00:04 -0400] \"GET /resource/0.html HTTP/1.0\" 200 1212"
+      ],
+      "parser_can_parse": false,
+      "parsed_sample_count": 5,
+      "estimated_log_format": "unknown",
+      "archive_member": null,
+      "reason_if_rejected": "known_nasa_source_not_zanbil"
+    }
+  ],
+  "guidance": "If no parseable candidate is found, place the authorized raw log at data/raw/zanbil/access.log."
+}

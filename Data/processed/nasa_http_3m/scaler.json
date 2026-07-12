@@ -1,0 +1,88 @@
+{
+  "type": "minmax",
+  "fit_scope": "train_only",
+  "features": {
+    "request_count": {
+      "min": 1.0,
+      "max": 405.0
+    },
+    "bytes_sum": {
+      "min": 0.0,
+      "max": 10214823.0
+    },
+    "bytes_mean": {
+      "min": 0.0,
+      "max": 1269716.0
+    },
+    "bytes_max": {
+      "min": 0.0,
+      "max": 6823936.0
+    },
+    "bytes_p95": {
+      "min": 0.0,
+      "max": 2046395.75
+    },
+    "unique_hosts": {
+      "min": 1.0,
+      "max": 179.0
+    },
+    "status_2xx": {
+      "min": 0.0,
+      "max": 327.0
+    },
+    "status_3xx": {
+      "min": 0.0,
+      "max": 81.0
+    },
+    "status_4xx": {
+      "min": 0.0,
+      "max": 24.0
+    },
+    "status_5xx": {
+      "min": 0.0,
+      "max": 21.0
+    },
+    "error_count": {
+      "min": 0.0,
+      "max": 24.0
+    },
+    "error_rate": {
+      "min": 0.0,
+      "max": 0.7777777910232544
+    },
+    "method_get": {
+      "min": 0.0,
+      "max": 403.0
+    },
+    "method_post": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "method_head": {
+      "min": 0.0,
+      "max": 16.0
+    },
+    "method_other": {
+      "min": 0.0,
+      "max": 2.0
+    },
+    "throughput_bytes_per_min": {
+      "min": 0.0,
+      "max": 10214823.0
+    },
+    "request_spike_score": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "congestion_score_proxy": {
+      "min": 0.0,
+      "max": 0.7587909698486328
+    }
+  },
+  "target": {
+    "target_next_congestion_score": {
+      "min": 0.0,
+      "max": 0.7243033051490784
+    }
+  }
+}

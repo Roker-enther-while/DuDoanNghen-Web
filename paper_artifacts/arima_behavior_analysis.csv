@@ -1,0 +1,2 @@
+model,rmse,r2,f1,behavior_note
+arima,46.67385777636456,-2.3372486757445405,0.1782656221533977,read_from_model_selection_metrics

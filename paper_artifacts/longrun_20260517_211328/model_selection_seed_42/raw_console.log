@@ -1,0 +1,30 @@
+[windows] train=(1501, 30, 13) val=(272, 30, 13)
+C:\Users\dhp01\AppData\Local\Programs\Python\Python310\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:966: UserWarning: Non-stationary starting autoregressive parameters found. Using zeros as starting parameters.
+  warn('Non-stationary starting autoregressive parameters'
+C:\Users\dhp01\AppData\Local\Programs\Python\Python310\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:978: UserWarning: Non-invertible starting MA parameters found. Using zeros as starting parameters.
+  warn('Non-invertible starting MA parameters found.'
+C:\Users\dhp01\AppData\Local\Programs\Python\Python310\lib\site-packages\google\api_core\_python_version_support.py:275: FutureWarning: You are using a Python version (3.10.6) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+{
+  "report_exists": true,
+  "model_ranking_exists": true,
+  "raw_console_exists": true,
+  "best_model_checkpoint_exists": true,
+  "report_path": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\AI_du_doan\\paper_artifacts\\longrun_20260517_211328\\model_selection_seed_42\\NCKH_BIGLOGS_MODEL_SELECTION_REPORT.md"
+}
+C:\Users\dhp01\OneDrive\Máy tính\AI_du_doan\paper_artifacts\longrun_20260517_211328\model_selection_seed_42\NCKH_BIGLOGS_MODEL_SELECTION_REPORT.md
+[windows] train=(1501, 30, 13) val=(272, 30, 13)
+C:\Users\dhp01\AppData\Local\Programs\Python\Python310\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:966: UserWarning: Non-stationary starting autoregressive parameters found. Using zeros as starting parameters.
+  warn('Non-stationary starting autoregressive parameters'
+C:\Users\dhp01\AppData\Local\Programs\Python\Python310\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:978: UserWarning: Non-invertible starting MA parameters found. Using zeros as starting parameters.
+  warn('Non-invertible starting MA parameters found.'
+C:\Users\dhp01\AppData\Local\Programs\Python\Python310\lib\site-packages\google\api_core\_python_version_support.py:275: FutureWarning: You are using a Python version (3.10.6) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+{
+  "report_exists": true,
+  "model_ranking_exists": true,
+  "raw_console_exists": true,
+  "best_model_checkpoint_exists": true,
+  "report_path": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\AI_du_doan\\paper_artifacts\\longrun_20260517_211328\\model_selection_seed_42\\NCKH_BIGLOGS_MODEL_SELECTION_REPORT.md"
+}
+C:\Users\dhp01\OneDrive\Máy tính\AI_du_doan\paper_artifacts\longrun_20260517_211328\model_selection_seed_42\NCKH_BIGLOGS_MODEL_SELECTION_REPORT.md

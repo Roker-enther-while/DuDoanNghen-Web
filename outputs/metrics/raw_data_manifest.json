@@ -1,0 +1,24 @@
+{
+  "sources": [
+    {
+      "source_name": "nasa_jul95",
+      "url": "https://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz",
+      "local_path": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\DuDoanNghenWeb\\data\\raw\\nasa_http\\NASA_access_log_Jul95.gz",
+      "file_size": 20676672,
+      "sha256": "199109ed0f273e095da6ccd5fc9dc4cd8bb58daa06d62135e62090fea9d27488",
+      "downloaded_at": "2026-07-11T13:24:11.701281+00:00",
+      "reused_existing": true,
+      "dry_run": false
+    },
+    {
+      "source_name": "nasa_aug95",
+      "url": "https://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz",
+      "local_path": "C:\\Users\\dhp01\\OneDrive\\M\u00e1y t\u00ednh\\DuDoanNghenWeb\\data\\raw\\nasa_http\\NASA_access_log_Aug95.gz",
+      "file_size": 16633316,
+      "sha256": "14995aed0ba4558ab832613ebea9a3ef2d87cb4297fc67f5694e0032bbb6b788",
+      "downloaded_at": "2026-07-11T13:24:11.715660+00:00",
+      "reused_existing": true,
+      "dry_run": false
+    }
+  ]
+}

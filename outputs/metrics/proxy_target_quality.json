@@ -1,0 +1,33 @@
+{
+  "autocorrelation": {
+    "lag_1": 0.8496282467880558,
+    "lag_5": 0.7886573493726697,
+    "lag_15": 0.7640496575056203,
+    "lag_30": 0.7539637860419878
+  },
+  "rolling_std_mean": 0.05745997390811173,
+  "spike_count_delta_gt_0.05": 23166,
+  "delta_abs": {
+    "count": 62424,
+    "min": 0.0,
+    "max": 0.68408203125,
+    "mean": 0.050549575033729297,
+    "std": 0.05666771003352637,
+    "quantiles": {
+      "p50": 0.032318115234375,
+      "p75": 0.07354736328125,
+      "p80": 0.086669921875,
+      "p85": 0.10302734375,
+      "p90": 0.1251220703125,
+      "p95": 0.1629638671875,
+      "p99": 0.25
+    }
+  },
+  "percent_near_constant": {
+    "abs_delta_lt_0.005": 0.1966711521209791,
+    "abs_delta_lt_0.01": 0.2639689862873254
+  },
+  "notes": [
+    "alert threshold should be calibrated by quantile or target formula should be adjusted"
+  ]
+}

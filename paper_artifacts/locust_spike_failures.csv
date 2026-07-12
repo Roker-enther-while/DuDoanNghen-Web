@@ -1,0 +1,2 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+GET,/maybe-error,HTTPError('503 Server Error: SERVICE UNAVAILABLE for url: /maybe-error'),61,2026-05-17T13:22:54Z,2026-05-17T13:24:21Z

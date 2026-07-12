@@ -1,0 +1,82 @@
+{
+  "path": "C:\\Users\\dhp01\\OneDrive\\Máy tính\\TCN-Attention-BiLSTM\\data\\processed\\synthetic_stress\\windows\\windows_fp16.npz",
+  "labels_path": "C:\\Users\\dhp01\\OneDrive\\Máy tính\\TCN-Attention-BiLSTM\\data\\processed\\synthetic_stress\\labels\\synthetic_stress_labels.csv",
+  "base_data": "C:\\Users\\dhp01\\OneDrive\\Máy tính\\TCN-Attention-BiLSTM\\data\\processed\\nasa_http_3m\\windows\\windows_fp16.npz",
+  "samples_per_scenario": 300,
+  "scenario_count": 6,
+  "synthetic_test_samples": 1800,
+  "positive_cases": 540,
+  "negative_cases": 1260,
+  "positive_ratio": 0.3,
+  "phase_counts": {
+    "background": 900,
+    "incident": 450,
+    "pre_incident": 270,
+    "recovery": 180
+  },
+  "scenario_counts": {
+    "flash_crowd": 300,
+    "burst_traffic": 300,
+    "error_surge": 300,
+    "slow_ramp": 300,
+    "periodic_spike": 300,
+    "mixed_incident": 300
+  },
+  "scenarios": [
+    "flash_crowd",
+    "burst_traffic",
+    "error_surge",
+    "slow_ramp",
+    "periodic_spike",
+    "mixed_incident"
+  ],
+  "generation_config": {
+    "base_data": "C:\\Users\\dhp01\\OneDrive\\Máy tính\\TCN-Attention-BiLSTM\\data\\processed\\nasa_http_3m\\windows\\windows_fp16.npz",
+    "seed": 42,
+    "samples_per_scenario": 300,
+    "scenarios": [
+      "flash_crowd",
+      "burst_traffic",
+      "error_surge",
+      "slow_ramp",
+      "periodic_spike",
+      "mixed_incident"
+    ],
+    "phase_counts": {
+      "background": 150,
+      "pre_incident": 45,
+      "incident": 75,
+      "recovery": 30
+    },
+    "phase_ratios": {
+      "background_ratio": 0.5,
+      "pre_incident_ratio": 0.15,
+      "incident_ratio": 0.25,
+      "recovery_ratio": 0.1
+    },
+    "target_positive_ratio_min": 0.2,
+    "target_positive_ratio_max": 0.4,
+    "generated_at": "2026-05-26T04:54:51.265394+00:00",
+    "synthetic_notice": "Generated stress benchmark, not real-world data.",
+    "generation_config_id": "882e3f3f4815385e"
+  },
+  "policy": {
+    "is_synthetic": true,
+    "separate_from_real_test": true,
+    "allowed_result_type": "synthetic_stress_test",
+    "warning": "Synthetic stress benchmark is generated from public real-data baseline and cannot support real-world performance claims."
+  },
+  "scenario_labels": [
+    "is_synthetic",
+    "source_id",
+    "scenario_name",
+    "phase",
+    "incident_start",
+    "incident_peak",
+    "incident_end",
+    "true_alert_label",
+    "severity",
+    "generation_config_id"
+  ],
+  "dashboard_payload": "C:\\Users\\dhp01\\OneDrive\\Máy tính\\TCN-Attention-BiLSTM\\outputs\\web\\synthetic_stress\\model_dashboard_payload.json"
+}

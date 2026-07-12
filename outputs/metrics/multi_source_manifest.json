@@ -1,0 +1,92 @@
+{
+  "generated_at": "2026-05-26T05:48:47.097666+00:00",
+  "config": {
+    "output_path": "data/processed/multi_source_web_logs/windows/windows_fp16.npz",
+    "split_mode": "chronological_within_source",
+    "license_manifest": "configs/data/public_sources.yaml",
+    "inputs": [
+      {
+        "source_id": "nasa_http_1995",
+        "path": "data/processed/nasa_http_3m/windows/windows_fp16.npz"
+      },
+      {
+        "source_id": "zanbil_web_logs",
+        "path": "data/processed/zanbil/windows/windows_fp16.npz",
+        "optional": true
+      }
+    ],
+    "notes": [
+      "Source identity is preserved as source_id_train/source_id_val/source_id_test arrays.",
+      "leave_one_source_out mode should be used for cross-source generalization evaluation."
+    ]
+  },
+  "output": {
+    "path": "C:\\Users\\dhp01\\OneDrive\\Máy tính\\TCN-Attention-BiLSTM\\data\\processed\\multi_source_web_logs\\windows\\windows_fp16.npz",
+    "sources": [
+      "nasa_http_1995"
+    ],
+    "source_distribution": {
+      "train": {
+        "nasa_http_1995": 62425
+      },
+      "val": {
+        "nasa_http_1995": 13330
+      },
+      "test": {
+        "nasa_http_1995": 13330
+      }
+    },
+    "shapes": {
+      "train": [
+        62425,
+        60,
+        19
+      ],
+      "val": [
+        13330,
+        60,
+        19
+      ],
+      "test": [
+        13330,
+        60,
+        19
+      ]
+    }
+  },
+  "skipped_inputs": [
+    {
+      "source_id": "zanbil_web_logs",
+      "path": "C:\\Users\\dhp01\\OneDrive\\Máy tính\\TCN-Attention-BiLSTM\\data\\processed\\zanbil\\windows\\windows_fp16.npz",
+      "reason": "missing optional input"
+    }
+  ],
+  "warnings": [
+    "multi_source_contains_single_source_only"
+  ],
+  "ready_for_training": true,
+  "ready_for_cross_source_claim": false,
+  "ready_for_real_world_claim": false,
+  "license_summary": {
+    "nasa_http_1995": "Internet Traffic Archive redistributable trace permission",
+    "zanbil_web_logs": "CC0-1.0 Public Domain Dedication",
+    "synthetic_stress_public_baseline": "Project-generated derived benchmark"
+  },
+  "pii_handling_summary": {
+    "nasa_http_1995": [
+      "hash_ip",
+      "drop_query_string",
+      "no_raw_release"
+    ],
+    "zanbil_web_logs": [
+      "hash_ip",
+      "drop_user_agent",
+      "drop_query_string",
+      "no_raw_release"
+    ],
+    "synthetic_stress_public_baseline": [
+      "no_raw_release"
+    ]
+  },
+  "leakage_policy": "Window artifacts are concatenated only within their existing train/val/test partitions."
+}
